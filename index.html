@@ -77,6 +77,17 @@
       <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
         >تحميل السيرة الذاتية</a
       >
+      <button id="scrollTopBtn" onclick="scrollToTop()">الرجوع لأعلى</button>
+
+<script>
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.onscroll = () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
     </section>
   </main>
 
