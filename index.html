@@ -2,108 +2,96 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8" />
-  <title>تسجيل المخيم الصيفي</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style-classic.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="theme-toggle">
-    🌞 / 🌙 <input type="checkbox" id="darkModeToggle" />
-  </div>
+  <header>
+    <h1>أكرم الشميري</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="bio.html">السيرة الذاتية</a></li>
+        <li><a href="skills.html">المهارات</a></li>
+        <li><a href="projects.html">المشاريع</a></li>
+        <li><a href="Certificates.html">الشهادات</a></li>
+        <li><a href="Recommendations.html">التوصيات</a></li>
+        <li><a href="contact.html">التواصل</a></li> 
+        
+      </ul>
+    </nav>
+  </header>
 
-  <h1>📋 تسجيل في المخيم الصيفي</h1>
+  <main>
+    <section>
+      <figure>
+        <img src="avater.jpg" alt="My Avatar" width="200" />
+        <figcaption>I'm Akram: a passionate learner of web development</figcaption>
+      </figure>
+    </section>
 
-  <form id="campForm">
-    <label for="child-name">الاسم الكامل للطفل</label>
-    <input type="text" id="child-name" name="child-name" required />
+    <section>
+      <h2>المهارات</h2>
+      <ul>
+        <li>HTML و CSS</li>
+        <li>JavaScript و React</li>
+        <li>PHP و MySQL</li>
+        <li>Git و GitHub</li>
+      </ul>
+    </section>
 
-    <label for="age">العمر</label>
-    <input type="number" id="age" name="age" required />
+    <section>
+      <h2>المشاريع</h2>
+      <ul>
+        <li>موقع شخصي</li>
+        <li>تطبيق مهام</li>
+        <li>لوحة تحكم</li>
+      </ul>
+    </section>
 
-    <label>الجنس</label>
-    <label><input type="radio" name="gender" value="male" required /> ذكر</label>
-    <label><input type="radio" name="gender" value="female" /> أنثى</label>
+    <section>
+      <h2>الشهادات</h2>
+      <ul>
+        <li>رخصة حاسوب</li>
+        <li>تطوير ويب</li>
+      </ul>
+    </section>
 
-    <label for="parent-name">اسم ولي الأمر</label>
-    <input type="text" id="parent-name" name="parent-name" required />
+    <section>
+      <h2>التوصيات</h2>
+      <ul>
+        <li>دعم فني ممتاز - أحمد الشيباني</li>
+        <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
+      </ul>
+    </section>
 
-    <label for="email">البريد الإلكتروني</label>
-    <input type="email" id="email" name="email" required />
+    <section class="cv-buttons">
 
-    <label for="start-date">تاريخ بدء المخيم</label>
-    <input type="date" id="start-date" name="start-date" required />
+      <button
+        class="cv-button"
+        onclick="window.open('cv akram.pdf', '_blank')"
+        type="button"
+      >
+        عرض السيرة الذاتية
+      </button>
 
-    <label>الأنشطة المفضلة</label>
-    <label><input type="checkbox" name="activities" value="Swimming" /> السباحة</label>
-    <label><input type="checkbox" name="activities" value="Art" /> الرسم</label>
-    <label><input type="checkbox" name="activities" value="Drama" /> المسرح</label>
-    <label><input type="checkbox" name="activities" value="Soccer" /> كرة القدم</label>
+      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
+        >تحميل السيرة الذاتية</a
+      >
+      <button class="cv-button" onclick="scrollToTop()">الرجوع لأعلى</button>
 
-    <label for="activity-level">مستوى النشاط</label>
-    <input type="range" id="activity-level" name="activity-level" min="1" max="3" value="2" oninput="updateSlider(this)" />
-    <output id="levelOutput">2</output>
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+    </section>
+  </main>
 
-    <label for="medical">معلومات طبية</label>
-    <textarea id="medical" name="medical" rows="4"></textarea>
-
-    <label for="photo">رفع صورة الطفل</label><br />
-    <input type="file" id="photo" name="photo" />
-    <span id="file-name" class="file-name">لم يتم اختيار ملف</span>
-
-    <br />
-    <button type="submit">تسجيل</button>
-    <button type="reset">إعادة تعيين</button>
-  </form>
-
-  <div id="confirmation">✅ تم التسجيل بنجاح! شكرًا لك.</div>
-
-  <script>
-    const form = document.getElementById("campForm");
-    const confirmation = document.getElementById("confirmation");
-    const fileInput = document.getElementById("photo");
-    const fileNameDisplay = document.getElementById("file-name");
-    const darkToggle = document.getElementById("darkModeToggle");
-
-    const inputs = form.querySelectorAll("input, textarea");
-    inputs.forEach(input => {
-      input.value = localStorage.getItem(input.name) || "";
-      input.addEventListener("input", () => {
-        localStorage.setItem(input.name, input.value);
-      });
-    });
-
-    fileInput.addEventListener("change", () => {
-      if (fileInput.files.length > 0) {
-        fileNameDisplay.textContent = fileInput.files[0].name;
-      } else {
-        fileNameDisplay.textContent = "لم يتم اختيار ملف";
-      }
-    });
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      confirmation.style.display = "block";
-      localStorage.clear();
-      form.reset();
-      setTimeout(() => {
-        confirmation.style.display = "none";
-      }, 4000);
-    });
-
-    function updateSlider(slider) {
-      const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-      slider.style.background = `linear-gradient(to right, #28a745 ${percentage}%, #ccc ${percentage}%)`;
-      document.getElementById("levelOutput").value = slider.value;
-    }
-
-    window.onload = function () {
-      updateSlider(document.getElementById("activity-level"));
-    };
-
-    darkToggle.addEventListener("change", () => {
-      document.documentElement.classList.toggle("dark", darkToggle.checked);
-    });
-  </script>
+  <footer>
+    <a href="mailto:akramalshmiri2019@gmail.com" target="_blank"
+      >akramalshmiri2019@gmail.com</a
+    >
+  </footer>
 </body>
 </html>
