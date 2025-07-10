@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>بروفايل أكرم الشميري</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- زر تبديل الوضع الليلي -->
+  <label class="switch" title="تبديل الوضع الليلي">
+    <input type="checkbox" id="toggle-dark" />
+    <span class="slider"></span>
+  </label>
+
   <header>
     <h1>أكرم الشميري</h1>
     <nav>
-      <ul>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul id="nav-menu">
         <li><a href="index.html">الرئيسية</a></li>
         <li><a href="bio.html">السيرة الذاتية</a></li>
         <li><a href="skills.html">المهارات</a></li>
         <li><a href="projects.html">المشاريع</a></li>
         <li><a href="Certificates.html">الشهادات</a></li>
         <li><a href="Recommendations.html">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li> 
-        
+        <li><a href="contact.html">التواصل</a></li>
       </ul>
     </nav>
   </header>
@@ -25,7 +32,12 @@
   <main>
     <section>
       <figure>
-        <img src="avater.jpg" alt="My Avatar" width="200" />
+        <img
+          src="avater.jpg"
+          alt="My Avatar"
+          width="200"
+          class="bio-image"
+        />
         <figcaption>I'm Akram: a passionate learner of web development</figcaption>
       </figure>
     </section>
@@ -80,11 +92,14 @@
       >
       <button class="cv-button" onclick="scrollToTop()">الرجوع لأعلى</button>
 
-<script>
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
+      <script>
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function toggleMenu() {
+          document.getElementById("nav-menu").classList.toggle("show");
+        }
+      </script>
     </section>
   </main>
 
