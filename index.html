@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أكرم الشميري - بروفايل</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,13 +19,13 @@
     <nav>
       <div class="hamburger" onclick="document.getElementById('nav-menu').classList.toggle('show')">☰</div>
       <ul id="nav-menu">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="bio.html">السيرة الذاتية</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-        <li><a href="projects.html">المشاريع</a></li>
-        <li><a href="Certificates.html">الشهادات</a></li>
-        <li><a href="Recommendations.html">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li>
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">السيرة الذاتية</a></li>
+        <li><a href="#">المهارات</a></li>
+        <li><a href="#">المشاريع</a></li>
+        <li><a href="#">الشهادات</a></li>
+        <li><a href="#">التوصيات</a></li>
+        <li><a href="#">التواصل</a></li>
       </ul>
     </nav>
   </header>
@@ -34,7 +34,7 @@
     <section>
       <figure>
         <img src="avater.jpg" alt="صورتي" width="200" />
-        <figcaption>أنا أكرم: متعلم شغوف في تطوير الويب</figcaption>
+        <figcaption>أنا أكرم: مطور ويب ومتعلم شغوف 💻</figcaption>
       </figure>
     </section>
 
@@ -57,47 +57,16 @@
       </ul>
     </section>
 
-    <section>
-      <h2>الشهادات</h2>
-      <ul>
-        <li>رخصة حاسوب</li>
-        <li>تطوير ويب</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>التوصيات</h2>
-      <ul>
-        <li>دعم فني ممتاز - أحمد الشيباني</li>
-        <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
-      </ul>
-    </section>
-
     <section class="cv-buttons">
-      <button
-        class="cv-button"
-        onclick="window.open('cv akram.pdf', '_blank')"
-        type="button"
-      >
-        عرض السيرة الذاتية
-      </button>
-      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
-        >تحميل السيرة الذاتية</a
-      >
-      <button class="cv-button" onclick="scrollToTop()">الرجوع لأعلى</button>
-
-      <script>
-        function scrollToTop() {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-      </script>
+      <a href="cv_akram.pdf" target="_blank" class="cv-button">عرض السيرة الذاتية</a>
+      <a href="cv_akram.pdf" download class="cv-button">تحميل السيرة الذاتية</a>
+      <button class="cv-button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">الرجوع لأعلى</button>
     </section>
   </main>
 
   <footer>
-    <a href="mailto:akramalshmiri2019@gmail.com" target="_blank"
-      >akramalshmiri2019@gmail.com</a
-    >
+    <p>© 2025 أكرم الشميري</p>
+    <a href="mailto:akramalshmiri2019@gmail.com">akramalshmiri2019@gmail.com</a>
   </footer>
 
 </body>
