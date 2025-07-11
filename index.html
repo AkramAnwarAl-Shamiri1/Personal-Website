@@ -107,13 +107,35 @@
   </footer>
 
   <script>
+    // تفعيل قائمة الهامبرغر على الشاشات الصغيرة
     function toggleMenu() {
       document.getElementById("nav-menu").classList.toggle("show");
     }
 
+    // التمرير للأعلى
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // جلب العناصر
+    const toggleDarkCheckbox = document.getElementById('toggle-dark');
+
+    // قراءة حالة الوضع من localStorage وتطبيقها عند تحميل الصفحة
+    if(localStorage.getItem('darkMode') === 'enabled'){
+      document.body.classList.add('dark');
+      toggleDarkCheckbox.checked = true;
+    }
+
+    // عند تغيير الزر، حفظ الحالة وتطبيق الوضع
+    toggleDarkCheckbox.addEventListener('change', () => {
+      if(toggleDarkCheckbox.checked){
+        document.body.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
   </script>
 </body>
 </html>
