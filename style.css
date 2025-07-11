@@ -102,12 +102,12 @@ nav ul li a:hover {
 /* الوضع الليلي للروابط */
 body.dark nav ul li a {
   background-color: #2a2a2a;
-  color: #f0f0f0;
+  color: #FFFFFF;
   box-shadow: none;
 }
 body.dark nav ul li a:hover {
   background-color: #444444;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /* Main content as grid */
@@ -313,36 +313,36 @@ footer {
   }
 }
 
-/* ====== تعديل الوضع الداكن محسّن لتباين أفضل ====== */
+/* ====== تعديل الوضع الداكن ====== */
 body.dark {
   background-color: #121212;
-  color: #e0e0e0;
+  color: #FFFFFF; /* أبيض ناصع */
 }
 body.dark header {
-  background-color: #1e1e1e !important;
-  color: #ffffff;
+  background-color: #222 !important;
+  color: #FFFFFF; /* أبيض ناصع */
 }
 body.dark main section {
-  background-color: #1e1e1e !important;
-  color: #e0e0e0 !important;
+  background-color: #333 !important;
+  color: #FFFFFF !important; /* أبيض ناصع */
   box-shadow: none !important;
 }
 body.dark footer {
-  background-color: #1a1a1a !important;
-  color: #bbbbbb !important;
+  background-color: #111 !important;
+  color: #FFFFFF !important; /* أبيض ناصع */
 }
 body.dark nav ul li a {
   background-color: #2a2a2a;
-  color: #f0f0f0;
+  color: #FFFFFF; /* أبيض ناصع */
   box-shadow: none;
 }
 body.dark nav ul li a:hover {
   background-color: #444444;
-  color: #ffffff;
+  color: #FFFFFF; /* أبيض ناصع */
 }
 body.dark .cv-button {
   background-color: #3399ff;
-  color: #fff;
+  color: #FFFFFF; /* أبيض ناصع */
 }
 body.dark .cv-button:hover {
   background-color: #77aaff;
