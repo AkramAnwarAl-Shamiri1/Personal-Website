@@ -1,105 +1,221 @@
+/* الأساسيات */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #222;
+  transition: all 0.3s ease;
+}
 
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بروفايل أكرم الشميري</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- زر تبديل الوضع الليلي -->
-  <label class="switch" title="تبديل الوضع الليلي">
-    <input type="checkbox" id="toggle-dark" />
-    <span class="slider"></span>
-  </label>  <header>
-    <h1>أكرم الشميري</h1>
-    <nav>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <ul id="nav-menu">
-        <li><a href="index.html">الرئيسية</a></li>
-     <li><a href="bio.html">السيرة الذاتية</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-     <li><a href="projects.html">المشاريع</a></li>
-           <li><a href="Certificates.html">الشهادات</a></li>
-        <li><a href="Recommendations.html">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li>
-      </ul>
-    </nav>
-  </header>  <main>
-    <section class="bio-section">
-      <img src="avater.jpg" alt="" class="bio-image" />
-      <div class="bio-text">
-        <h1>أكرم الشميري</h1>
-        <p>مطور ويب متكامل </p>
-      </div>
-    </section><!-- قسم النبذة المختصرة -->
-<section class="status-section">
-  <h2>نبذة مختصرة</h2>
-  <p>
-    مطور ويب  أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML ,CSS JavaScript, PHP
-  </p>
-</section>
+/* زر الوضع الليلي */
+.switch {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 26px;
+  z-index: 1000;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+input:checked + .slider {
+  background-color: #004080;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
 
-<section>
-  <h2>المهارات</h2>
-  <ul class="skills-list">
-    <li>HTML و CSS</li>
-    <li>JavaScript و React</li>
-    <li>PHP و MySQL</li>
-    <li>Git و GitHub</li>
-  </ul>
-</section>
+/* الهيدر */
+header {
+  background-color: #004080;
+  color: white;
+  padding: 20px 20px 0;
+  text-align: center;
+  position: relative;
+}
 
-<section>
-  <h2>المشاريع</h2>
-  <ul class="projects-list">
-    <li>موقع شخصي</li>
-    <li>تطبيق مهام</li>
-    <li>لوحة تحكم</li>
-  </ul>
-</section>
+/* زر الهامبرغر */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
 
-<section>
-  <h2>الشهادات</h2>
-  <ul class="certificates-list">
-    <li>رخصة حاسوب</li>
-    <li>تطوير ويب</li>
-  </ul>
-</section>
+/* قائمة التنقل */
+nav {
+  position: relative;
+}
+nav ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: #004080;
+  flex-wrap: wrap;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav ul li a:hover {
+  text-decoration: underline;
+}
 
-<section>
-  <h2>التوصيات</h2>
-  <ul class="recommendations-list">
-    <li>دعم فني ممتاز - أحمد الشيباني</li>
-    <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
-  </ul>
-</section>
+/* المحتوى */
+main {
+  padding: 30px 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+section {
+  background: white;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h2 {
+  color: #004080;
+  margin-bottom: 15px;
+}
+ul {
+  padding-right: 20px;
+  font-size: 18px;
+}
+img {
+  border-radius: 40%;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+figcaption {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
 
-<section class="cv-buttons">
-  <button
-    class="cv-button"
-    onclick="window.open('cv akram.pdf', '_blank')"
-    type="button"
-  >
-    عرض السيرة الذاتية
-  </button>
+/* أزرار */
+.cv-buttons {
+  text-align: center;
+}
+.cv-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cv-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
 
-  <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
-    >تحميل السيرة الذاتية</a
-  >
-  <button class="cv-button" onclick="scrollToTop()">الرجوع لأعلى</button>
-</section>
+/* الفوتر */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #66ccff;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
 
-  </main>  <footer>
-    <a href="mailto:akramalshmiri2019@gmail.com" target="_blank"
-      >akramalshmiri2019@gmail.com</a
-    >
-  </footer>  <script>
-    function toggleMenu() {
-      document.getElementById("nav-menu").classList.toggle("show");
-    }
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script></body>
-</html> 
+/* الوضع الداكن */
+input#toggle-dark:checked ~ header,
+input#toggle-dark:checked ~ nav ul {
+  background-color: #1a1a1a !important;
+  color: #eee !important;
+}
+input#toggle-dark:checked ~ main,
+input#toggle-dark:checked ~ main section {
+  background-color: #222 !important;
+  color: #eee !important;
+}
+input#toggle-dark:checked ~ footer {
+  background-color: #111 !important;
+  color: #ccc !important;
+}
+input#toggle-dark:checked ~ body,
+input#toggle-dark:checked ~ * {
+  background-color: #121212 !important;
+  color: #eee !important;
+}
+input#toggle-dark:checked ~ main .cv-button {
+  background-color: #333 !important;
+  color: #eee !important;
+  border: 1px solid #eee;
+}
+input#toggle-dark:checked ~ main .cv-button:hover {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+/* الشاشات الصغيرة */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+    position: relative;
+  }
+  nav ul.show {
+    display: flex;
+    animation: fadeInMenu 0.3s ease forwards;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* حركة قائمة التنقل */
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
