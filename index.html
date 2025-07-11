@@ -18,33 +18,37 @@
     <nav>
       <div class="hamburger" onclick="toggleMenu()">☰</div>
       <ul id="nav-menu">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="bio.html">السيرة الذاتية</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-        <li><a href="projects.html">المشاريع</a></li>
-        <li><a href="Certificates.html">الشهادات</a></li>
-        <li><a href="Recommendations.html">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li>
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">السيرة الذاتية</a></li>
+        <li><a href="#">المهارات</a></li>
+        <li><a href="#">المشاريع</a></li>
+        <li><a href="#">الشهادات</a></li>
+        <li><a href="#">التوصيات</a></li>
+        <li><a href="#">التواصل</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section>
-      <figure>
-        <img
-          src="avater.jpg"
-          alt="My Avatar"
-          width="200"
-          class="bio-image"
-        />
-        <figcaption>I'm Akram: a passionate learner of web development</figcaption>
-      </figure>
+    <section class="bio-section">
+      <img src="avater.jpg" alt="" class="bio-image" />
+      <div class="bio-text">
+        <h1>أكرم الشميري</h1>
+        <p>مطور ويب متكامل </p>
+      </div>
+    </section>
+
+    <!-- قسم النبذة المختصرة -->
+    <section class="status-section">
+      <h2>نبذة مختصرة</h2>
+      <p>
+        مطور ويب  أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML ,CSS JavaScript, PHP
+      </p>
     </section>
 
     <section>
       <h2>المهارات</h2>
-      <ul>
+      <ul class="skills-list">
         <li>HTML و CSS</li>
         <li>JavaScript و React</li>
         <li>PHP و MySQL</li>
@@ -54,7 +58,7 @@
 
     <section>
       <h2>المشاريع</h2>
-      <ul>
+      <ul class="projects-list">
         <li>موقع شخصي</li>
         <li>تطبيق مهام</li>
         <li>لوحة تحكم</li>
@@ -63,7 +67,7 @@
 
     <section>
       <h2>الشهادات</h2>
-      <ul>
+      <ul class="certificates-list">
         <li>رخصة حاسوب</li>
         <li>تطوير ويب</li>
       </ul>
@@ -71,14 +75,13 @@
 
     <section>
       <h2>التوصيات</h2>
-      <ul>
+      <ul class="recommendations-list">
         <li>دعم فني ممتاز - أحمد الشيباني</li>
         <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
       </ul>
     </section>
 
     <section class="cv-buttons">
-
       <button
         class="cv-button"
         onclick="window.open('cv akram.pdf', '_blank')"
@@ -91,15 +94,6 @@
         >تحميل السيرة الذاتية</a
       >
       <button class="cv-button" onclick="scrollToTop()">الرجوع لأعلى</button>
-
-      <script>
-        function scrollToTop() {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        function toggleMenu() {
-          document.getElementById("nav-menu").classList.toggle("show");
-        }
-      </script>
     </section>
   </main>
 
@@ -108,5 +102,14 @@
       >akramalshmiri2019@gmail.com</a
     >
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
