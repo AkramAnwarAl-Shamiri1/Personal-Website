@@ -7,7 +7,22 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-
+/* الوضع الليلي عبر :has() */
+body:has(#mode-toggle:checked) {
+  background-color: #121212;
+  color: #ddd;
+}
+body:has(#mode-toggle:checked) header {
+  background-color: #222;
+}
+body:has(#mode-toggle:checked) main section {
+  background-color: #333;
+  color: #eee;
+}
+body:has(#mode-toggle:checked) footer {
+  background-color: #111;
+  color: #ccc;
+}
 
 /* زر الوضع الليلي */
 .switch {
@@ -54,7 +69,6 @@ input:checked + .slider:before {
 /* الهيدر */
 header {
   background-color: #0A2647;
-
   color: white;
   padding: 20px;
   text-align: center;
@@ -94,7 +108,7 @@ nav ul li a:hover {
   color: #a0c8ff;
 }
 
-/* Main content as grid */
+/* محتوى الصفحة */
 main {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -104,25 +118,24 @@ main {
   padding: 0 20px;
 }
 
-/* في الشاشات الصغيرة: عمود واحد */
+/* في الشاشات الصغيرة */
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
   }
 }
 
-/* قسم البايو - flexbox */
+/* قسم البايو */
 .bio-section {
   display: flex;
   align-items: center;
   gap: 30px;
   padding: 10px;
-  background:#f9fbfd;
+  background: #f9fbfd;
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
   max-width: 1000px;
-  
 }
 @media (max-width: 768px) {
   .bio-section {
@@ -135,10 +148,15 @@ main {
 .bio-image {
   width: 150px;
   height: 150px;
-   border-radius: 50px;
+  border-radius: 50px;
   object-fit: cover;
   animation: zoomIn 1.5s ease forwards;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.bio-image:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 /* نص البايو */
@@ -154,8 +172,7 @@ main {
   margin-top: 10px;
 }
 
-/* قسم النبذة المختصرة (الحالة) */
-
+/* النبذة */
 .status-section {
   align-items: center;
   gap: 30px;
@@ -165,7 +182,6 @@ main {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
   max-width: 1000px;
-  
 }
 .status-section h2 {
   color: #004080;
@@ -179,14 +195,14 @@ main {
   color: #444;
 }
 
-/* توحيد التصميم لكل العناصر داخل الأقسام */
+/* العناصر الموحدة */
 .skills-list li,
 .projects-list li,
 .certificates-list li,
 .recommendations-list li {
   background: #e0f0ff;
   padding: 12px;
-  border-radius:10px;
+  border-radius: 10px;
   text-align: center;
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -194,8 +210,6 @@ main {
   color: #222;
   transition: background-color 0.3s ease;
 }
-
-/* تأثير hover موحد */
 .skills-list li:hover,
 .projects-list li:hover,
 .certificates-list li:hover,
@@ -203,14 +217,13 @@ main {
   background-color: #b0d4ff;
 }
 
-/* أقسام عامة */
+/* الأقسام العامة */
 section {
   background: white;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin-bottom: -25px;
-
 }
 section h2 {
   margin-top: 0;
@@ -218,7 +231,6 @@ section h2 {
   margin-bottom: 5px;
   text-align: right;
   font-size: 1.8rem;
- 
 }
 
 /* أزرار السيرة الذاتية */
@@ -279,7 +291,7 @@ footer a:hover {
   }
 }
 
-/* Responsive Navbar - الهامبرغر */
+/* Responsive Navbar */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -293,7 +305,7 @@ footer a:hover {
     border-radius: 0 0 10px 10px;
     z-index: 999;
   }
-  nav ul.show {
+  #menu-toggle:checked ~ header nav ul {
     display: flex;
     animation: fadeInMenu 0.4s ease forwards;
   }
@@ -308,6 +320,7 @@ footer a:hover {
     display: block;
   }
 }
+
 @keyframes fadeInMenu {
   from {
     opacity: 0;
@@ -317,21 +330,4 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* الوضع الليلي */
-input#toggle-dark:checked ~ header {
-  background-color: #222 !important;
-}
-input#toggle-dark:checked ~ main section {
-  background-color: #333 !important;
-  color: #eee !important;
-}
-input#toggle-dark:checked ~ footer {
-  background-color: #111 !important;
-  color: #ccc !important;
-}
-input#toggle-dark:checked ~ body {
-  background-color: #121212 !important;
-  color: #ddd !important;
 }
