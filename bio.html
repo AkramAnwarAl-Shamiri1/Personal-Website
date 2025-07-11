@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -14,37 +14,24 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* الوضع الليلي التلقائي */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #eee;
-      }
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
 
-      nav ul li a {
-        background-color: #333;
-        color: #ccc;
-      }
-
-      nav ul li a:hover,
-      nav ul li a.active {
-        background-color: #555;
-        color: white;
-      }
-
-      .bio-section {
-        background-color: #1e1e1e;
-        color: #eee;
-      }
-
-      .bio-text h1, .bio-text h2 {
-        color: #4ea3f1;
-      }
-
-      footer, header {
-        background-color: #222;
-        color: white;
-      }
+    /* زر الوضع الداكن */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background-color: #0A2647;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      z-index: 1000;
     }
 
     /* رأس الصفحة */
@@ -84,12 +71,22 @@
       color: #007bff;
       text-decoration: none;
       transition: background 0.3s;
-      display: inline-block;
     }
 
     nav ul li a:hover,
     nav ul li a.active {
       background-color: #0056b3;
+      color: white;
+    }
+
+    body.dark nav ul li a {
+      background-color: #333;
+      color: #ccc;
+    }
+
+    body.dark nav ul li a:hover,
+    body.dark nav ul li a.active {
+      background-color: #555;
       color: white;
     }
 
@@ -105,6 +102,11 @@
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    body.dark .bio-section {
+      background-color: #1e1e1e;
+      color: #eee;
     }
 
     @keyframes fadeInUp {
@@ -130,9 +132,15 @@
       flex: 1;
     }
 
-    .bio-text h1, .bio-text h2 {
+    .bio-text h1,
+    .bio-text h2 {
       margin-top: 0;
       color: #004080;
+    }
+
+    body.dark .bio-text h1,
+    body.dark .bio-text h2 {
+      color: #4ea3f1;
     }
 
     .bio-text ul {
@@ -160,7 +168,10 @@
       border-radius: 20px;
       margin-top: 2rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      font-size: 1rem;
+    }
+
+    body.dark footer {
+      background-color: #222;
     }
 
     @media (max-width: 768px) {
@@ -186,6 +197,9 @@
   </style>
 </head>
 <body>
+
+  <!-- زر الوضع الداكن -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
 
   <!-- رأس الصفحة -->
   <header>
@@ -227,5 +241,12 @@
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
 
+  <!-- كود جافاسكربت لتبديل الوضع -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+
 </body>
-</html>  
+</html>
