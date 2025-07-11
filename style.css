@@ -4,10 +4,10 @@ body {
   margin: 0;
   background-color: #f0f4f8;
   color: #222;
+  direction: rtl;
+  text-align: right;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
-
-
 
 /* زر الوضع الليلي */
 .switch {
@@ -54,7 +54,6 @@ input:checked + .slider:before {
 /* الهيدر */
 header {
   background-color: #0A2647;
-
   color: white;
   padding: 20px;
   text-align: center;
@@ -94,7 +93,7 @@ nav ul li a:hover {
   color: #a0c8ff;
 }
 
-/* Main content as grid */
+/* Main layout */
 main {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -111,18 +110,17 @@ main {
   }
 }
 
-/* قسم البايو - flexbox */
+/* قسم البايو */
 .bio-section {
   display: flex;
   align-items: center;
   gap: 30px;
   padding: 10px;
-  background:#f9fbfd;
+  background: #f9fbfd;
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
   max-width: 1000px;
-  
 }
 @media (max-width: 768px) {
   .bio-section {
@@ -135,7 +133,7 @@ main {
 .bio-image {
   width: 150px;
   height: 150px;
-   border-radius: 50px;
+  border-radius: 50px;
   object-fit: cover;
   animation: zoomIn 1.5s ease forwards;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -154,8 +152,7 @@ main {
   margin-top: 10px;
 }
 
-/* قسم النبذة المختصرة (الحالة) */
-
+/* قسم الحالة */
 .status-section {
   align-items: center;
   gap: 30px;
@@ -165,7 +162,6 @@ main {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
   max-width: 1000px;
-  
 }
 .status-section h2 {
   color: #004080;
@@ -179,46 +175,46 @@ main {
   color: #444;
 }
 
-/* توحيد التصميم لكل العناصر داخل الأقسام */
-.skills-list li,
-.projects-list li,
-.certificates-list li,
-.recommendations-list li {
-  background: #e0f0ff;
-  padding: 12px;
-  border-radius:10px;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 18px;
-  color: #222;
-  transition: background-color 0.3s ease;
-}
-
-/* تأثير hover موحد */
-.skills-list li:hover,
-.projects-list li:hover,
-.certificates-list li:hover,
-.recommendations-list li:hover {
-  background-color: #b0d4ff;
-}
-
-/* أقسام عامة */
+/* الأقسام العامة */
 section {
+  direction: rtl;
   background: white;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 30px 25px;
+  margin: 30px auto;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  margin-bottom: -25px;
-
+  text-align: right;
+  max-width: 1000px;
+  min-height: 200px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 section h2 {
   margin-top: 0;
   color: #004080;
-  margin-bottom: 5px;
-  text-align: right;
+  margin-bottom: 20px;
   font-size: 1.8rem;
- 
+  text-align: right;
+  border-bottom: 2px solid #cce0ff;
+  padding-bottom: 5px;
+}
+section ul {
+  padding-right: 20px;
+  margin: 0;
+  list-style-position: inside;
+}
+section ul li {
+  background: #e0f0ff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  transition: background-color 0.3s ease;
+}
+section ul li:hover {
+  background-color: #b0d4ff;
 }
 
 /* أزرار السيرة الذاتية */
@@ -267,19 +263,29 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* أنيميشن */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* الوضع الليلي */
+input#toggle-dark:checked ~ header {
+  background-color: #222 !important;
+}
+input#toggle-dark:checked ~ main section,
+input#toggle-dark:checked ~ .bio-section,
+input#toggle-dark:checked ~ .status-section {
+  background-color: #2b2b2b !important;
+  color: #eee !important;
+}
+input#toggle-dark:checked ~ footer {
+  background-color: #111 !important;
+  color: #ccc !important;
+}
+input#toggle-dark:checked ~ main section ul li {
+  background-color: #3a3a3a !important;
+  color: #ccc !important;
+}
+input#toggle-dark:checked ~ main section ul li:hover {
+  background-color: #505050 !important;
 }
 
-/* Responsive Navbar - الهامبرغر */
+/* Responsive Navbar */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -307,6 +313,29 @@ footer a:hover {
   .hamburger {
     display: block;
   }
+  section {
+    padding: 20px 15px;
+    margin: 20px 10px;
+  }
+  section h2 {
+    font-size: 1.6rem;
+  }
+  section ul li {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+}
+
+/* أنيميشن */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 @keyframes fadeInMenu {
   from {
@@ -317,21 +346,4 @@ footer a:hover {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* الوضع الليلي */
-input#toggle-dark:checked ~ header {
-  background-color: #222 !important;
-}
-input#toggle-dark:checked ~ main section {
-  background-color: #333 !important;
-  color: #eee !important;
-}
-input#toggle-dark:checked ~ footer {
-  background-color: #111 !important;
-  color: #ccc !important;
-}
-input#toggle-dark:checked ~ body {
-  background-color: #121212 !important;
-  color: #ddd !important;
 }
