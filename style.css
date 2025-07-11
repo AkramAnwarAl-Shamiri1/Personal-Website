@@ -7,8 +7,6 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-
-
 /* زر الوضع الليلي */
 .switch {
   position: fixed;
@@ -54,7 +52,6 @@ input:checked + .slider:before {
 /* الهيدر */
 header {
   background-color: #0A2647;
-
   color: white;
   padding: 20px;
   text-align: center;
@@ -74,24 +71,41 @@ header {
   z-index: 1001;
 }
 
-/* القائمة */
+/* قائمة التنقل بالأيقونات */
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 nav ul li a {
-  color: white;
-  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e0f0ff;
+  color: #004080;
+  padding: 8px 16px;
+  border-radius: 20px;
   font-weight: bold;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, color 0.3s;
 }
 nav ul li a:hover {
-  text-decoration: underline;
-  color: #a0c8ff;
+  background-color: #b0d4ff;
+  color: #002c60;
+}
+
+/* الوضع الليلي للروابط */
+body.dark nav ul li a {
+  background-color: #333;
+  color: #eee;
+}
+body.dark nav ul li a:hover {
+  background-color: #555;
 }
 
 /* Main content as grid */
@@ -111,7 +125,7 @@ main {
   }
 }
 
-/* قسم البايو - flexbox */
+/* bio section */
 .bio-section {
   display: flex;
   align-items: center;
@@ -121,8 +135,6 @@ main {
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
-  max-width: 1000px;
-  
 }
 @media (max-width: 768px) {
   .bio-section {
@@ -135,7 +147,7 @@ main {
 .bio-image {
   width: 150px;
   height: 150px;
-   border-radius: 50px;
+  border-radius: 50px;
   object-fit: cover;
   animation: zoomIn 1.5s ease forwards;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -154,23 +166,17 @@ main {
   margin-top: 10px;
 }
 
-/* قسم النبذة المختصرة (الحالة) */
-
+/* status section */
 .status-section {
-  align-items: center;
-  gap: 30px;
   padding: 10px;
   background: white;
   border-radius: 50px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   grid-column: 1 / -1;
-  max-width: 1000px;
-  
 }
 .status-section h2 {
   color: #004080;
   margin-bottom: 15px;
-  text-align: right;
   font-size: 1.8rem;
 }
 .status-section p {
@@ -179,7 +185,7 @@ main {
   color: #444;
 }
 
-/* توحيد التصميم لكل العناصر داخل الأقسام */
+/* قوائم العناصر */
 .skills-list li,
 .projects-list li,
 .certificates-list li,
@@ -194,8 +200,6 @@ main {
   color: #222;
   transition: background-color 0.3s ease;
 }
-
-/* تأثير hover موحد */
 .skills-list li:hover,
 .projects-list li:hover,
 .certificates-list li:hover,
@@ -203,22 +207,18 @@ main {
   background-color: #b0d4ff;
 }
 
-/* أقسام عامة */
+/* أقسام */
 section {
   background: white;
   padding: 5px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   margin-bottom: -25px;
-
 }
 section h2 {
-  margin-top: 0;
   color: #004080;
   margin-bottom: 5px;
-  text-align: right;
   font-size: 1.8rem;
- 
 }
 
 /* أزرار السيرة الذاتية */
@@ -244,7 +244,6 @@ section h2 {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 .cv-button:hover {
   background-color: #0056b3;
@@ -259,13 +258,6 @@ footer {
   padding: 15px;
   font-size: 1rem;
 }
-footer a {
-  color: #e3e8eb;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
 
 /* أنيميشن */
 @keyframes zoomIn {
@@ -279,7 +271,7 @@ footer a:hover {
   }
 }
 
-/* Responsive Navbar - الهامبرغر */
+/* Responsive Navbar */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -319,7 +311,7 @@ footer a:hover {
   }
 }
 
-/* الوضع الليلي */
+/* الوضع الليلي للأقسام */
 input#toggle-dark:checked ~ header {
   background-color: #222 !important;
 }
@@ -334,4 +326,4 @@ input#toggle-dark:checked ~ footer {
 input#toggle-dark:checked ~ body {
   background-color: #121212 !important;
   color: #ddd !important;
-  }
+}
