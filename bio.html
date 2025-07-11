@@ -1,105 +1,67 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>السيرة الذاتية - أكرم الشميري</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="cv-container">
-    <header>
-      
+
+  <!-- زر الوضع الليلي -->
+  <label class="switch">
+    <input type="checkbox" id="toggle-dark" onclick="document.body.classList.toggle('dark')">
+    <span class="slider"></span>
+  </label>
+
+  <!-- رأس الصفحة -->
   <header>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <h1>أكرم الشميري</h1>
     <nav>
-      <ul>
+      <ul id="nav-menu">
         <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="bio.html">السيرة الذاتية</a></li>
+        <li><a href="bio.html" class="active">السيرة الذاتية</a></li>
         <li><a href="skills.html">المهارات</a></li>
         <li><a href="projects.html">المشاريع</a></li>
         <li><a href="Certificates.html">الشهادات</a></li>
         <li><a href="Recommendations.html">التوصيات</a></li>
-          <li><a href="contact.html">التواصل</a></li>
+        <li><a href="contact.html">التواصل</a></li>
       </ul>
     </nav>
   </header>
-      
-    </header>
 
-    <section>
-        <img src="avater.jpg" alt="" class="bio-image" />
-<h1>أكرم أنور محمد مهيوب الشميري</h1>
-      <h2>مطور ويب متكامل (Full-Stack Web Developer)</h2>
-      <p class="status">الحالة الاجتماعية: متزوج</p>
-        </section>
-      <section>
-      <h3>نبذة شخصية</h3>
-      <p>
-        مطور ويب متكامل شغوف، أتمتع بخبرة في تطوير المواقع وتطبيقات الويب باستخدام تقنيات الواجهة الأمامية والخلفية.
-        أتقن HTML, CSS, JavaScript, PHP، ولدي مهارة في تصميم واجهات متجاوبة وتحسين تجربة المستخدم.
-        أسعى لتقديم حلول برمجية فعالة وجودة عالية تلبي احتياجات العملاء.
-      </p>
-    </section>
+  <!-- المحتوى -->
+  <main>
+    <section class="bio-section">
+      <img src="profile.jpg" alt="صورة أكرم الشميري" class="bio-image" />
+      <div class="bio-text">
+        <h2>نبذة شخصية</h2>
+        <p>أنا أكرم أنور محمد مهيوب الشميري، مطور ويب متكامل، شغوف بتصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام HTML, CSS, JavaScript, و PHP. أتمتع بخبرة واسعة في بناء مواقع متجاوبة وعملية مع واجهات جذابة وسهلة الاستخدام.</p>
 
-    <section>
-      <h3>المهارات التقنية</h3>
-      <ul>
-        <li>HTML5 / CSS3 / Bootstrap</li>
-        <li>JavaScript / jQuery</li>
-        <li>PHP (OOP) / Laravel (أساسي)</li>
-        <li>Git / GitHub</li>
-        <li>تصميم متجاوب (Responsive Design)</li>
-        <li>Figma / Adobe XD</li>
-      </ul>
+        <h2>المعلومات الشخصية</h2>
+        <ul>
+          <li><strong>الاسم الكامل:</strong> أكرم أنور محمد مهيوب الشميري</li>
+          <li><strong>الحالة الاجتماعية:</strong> متزوج</li>
+          <li><strong>الموقع:</strong> اليمن - تعز - المظفر</li>
+          <li><strong>الهاتف:</strong> 777498052</li>
+          <li><strong>البريد الإلكتروني:</strong> <a href="mailto:akramalshmiri2019@gmail.com">akramalshmiri2019@gmail.com</a></li>
+          <li><strong>المؤهل العلمي:</strong> بكالوريوس تقنية معلومات</li>
+        </ul>
+      </div>
     </section>
+  </main>
 
-    <section>
-      <h3>المشاريع</h3>
-      <ul>
-        <li><strong>نظام إدارة الحالات الاجتماعية:</strong> تطبيق PHP OOP لتتبع التدخلات والحالات.</li>
-        <li><strong>موقع شخصي احترافي:</strong> يدعم الوضع الليلي ومتجاوب لجميع الأجهزة.</li>
-        <li><strong>نظام تسجيل المتطوعين:</strong> يربط المتطوعين بالفعاليات حسب المهارات والموقع.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>المؤهلات الأكاديمية</h3>
-      <p>بكالوريوس في تقنية المعلومات ]</p>
-    </section>
-
-    <section>
-      <h3>الدورات والشهادات</h3>
-      <ul>
-        <li>Full Stack Web Development – منصة XYZ</li>
-        <li>دورة PHP OOP – معهد ABC</li>
-        <li>UI/UX Design – تعليم عن بعد</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>اللغات</h3>
-      <ul>
-        <li>العربية: اللغة الأم</li>
-        <li>الإنجليزية: جيد (قراءة وكتابة)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>معلومات التواصل</h3>
-      <p>📧 akramalshmiri2019@gmail.com</p>
-      <p>📞 777498052</p>
-      <p>📍 اليمن – تعز – المظفر</p>
-      <p>
-        💻 <a href="https://github.com/akram" target="_blank">GitHub</a> |
-        💼 <a href="https://linkedin.com/in/akram" target="_blank">LinkedIn</a>
-      </p>
-    </section>
-  </div>
+  <!-- التذييل -->
   <footer>
-    <p>&copy; 2025 - أكرم الشميري | البريد: 
-    <a href="mailto:akramalshmiri2019@gmail.com">akramalshmiri2019@gmail.com</a></p>
+    <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
+
+  <!-- جافا سكربت للهامبرغر -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    }
+  </script>
 </body>
 </html>
