@@ -70,12 +70,32 @@
       background-color: #007bff;
       color: white;
       padding: 1rem;
-      position: relative;
     }
 
-    header h1 {
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content h1 {
+      flex: 1;
+      text-align: center;
       margin: 0;
       font-size: 1.8rem;
+    }
+
+    /* زر الهامبرغر */
+    #nav-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      display: none;
+      user-select: none;
     }
 
     nav ul {
@@ -85,6 +105,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      justify-content: center;
     }
 
     nav ul li a {
@@ -93,6 +114,7 @@
       border-radius: 20px;
       color: #007bff;
       transition: background 0.3s;
+      display: inline-block;
     }
 
     nav ul li a:hover,
@@ -110,15 +132,6 @@
     body.dark nav ul li a.active {
       background-color: #555;
       color: white;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 2rem;
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      cursor: pointer;
     }
 
     main {
@@ -142,6 +155,28 @@
       flex: 1;
     }
 
+    .bio-text ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bio-text ul li {
+      margin-bottom: 10px;
+      padding-right: 1.5em;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .bio-text ul li::before {
+      content: "🔹";
+      position: absolute;
+      right: 0;
+      font-size: 1.1em;
+      line-height: 1;
+      color: #007bff;
+    }
+
     footer {
       background-color: #007bff;
       color: white;
@@ -154,13 +189,8 @@
       background-color: #222;
     }
 
+    /* الهاتف والشاشات الصغيرة */
     @media (max-width: 768px) {
-      .bio-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
       .hamburger {
         display: block;
       }
@@ -170,16 +200,21 @@
         flex-direction: column;
         background-color: #007bff;
         padding: 1rem;
+        border-radius: 10px;
         margin-top: 1rem;
       }
 
-      nav ul.show {
+      #nav-toggle:checked ~ nav ul {
         display: flex;
       }
 
       nav ul li a {
         background-color: white;
         color: #007bff;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
       }
 
       body.dark nav ul {
@@ -203,10 +238,13 @@
 
   <!-- رأس الصفحة -->
   <header>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <h1>أكرم الشميري</h1>
+    <div class="header-content">
+      <label for="nav-toggle" class="hamburger">☰</label>
+      <h1>أكرم الشميري</h1>
+    </div>
+    <input type="checkbox" id="nav-toggle" hidden>
     <nav>
-      <ul id="nav-menu">
+      <ul>
         <li><a href="index.html">الرئيسية</a></li>
         <li><a href="bio.html" class="active">السيرة الذاتية</a></li>
         <li><a href="skills.html">المهارات</a></li>
@@ -244,11 +282,5 @@
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
 
-  <!-- جافا سكربت للهامبرغر -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("nav-menu").classList.toggle("show");
-    }
-  </script>
 </body>
 </html>
