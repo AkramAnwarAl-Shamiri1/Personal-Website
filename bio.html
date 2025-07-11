@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>سيرة ذاتية - تأثيرات</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,30 +11,83 @@
       padding: 2rem;
       background: #f0f4f8;
       color: #222;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    /* رأس الصفحة وذيلها بشكل قسم المهارات */
-    header, footer {
-      background: #fff;
-      padding: 1.5rem;
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    /* رأس الصفحة */
+    header {
+      background-color: #0A2647;
+      color: white;
+      padding: 1rem 2rem;
       border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
-      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     header h1 {
+      flex: 1;
+      text-align: center;
       margin: 0;
+      font-size: 1.8rem;
+    }
+
+    /* قائمة التنقل */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    nav ul li a {
+      padding: 0.5rem 1rem;
+      background-color: white;
+      border-radius: 20px;
       color: #007bff;
+      text-decoration: none;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #0056b3;
+      color: white;
+    }
+    body.dark nav ul li a {
+      background-color: #333;
+      color: #ccc;
+    }
+    body.dark nav ul li a:hover,
+    body.dark nav ul li a.active {
+      background-color: #555;
+      color: white;
+    }
+
+    /* زر الهامبرغر (للهواتف) */
+    #nav-toggle {
+      display: none;
+    }
+    .hamburger {
       font-size: 2rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      display: none;
+      user-select: none;
+      color: white;
     }
 
-    footer p {
-      margin: 0;
-      color: #555;
-      font-size: 1rem;
-    }
-
+    /* الأقسام */
     .bio-section {
       display: flex;
       flex-wrap: wrap;
@@ -43,10 +96,11 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1.2s ease-out forwards;
-      background: #fff;
+      background: white;
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #222;
     }
 
     @keyframes fadeInUp {
@@ -94,15 +148,66 @@
       right: 0;
     }
 
+    /* التذييل */
+    footer {
+      background-color: #0A2647;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      font-size: 1rem;
+    }
+    body.dark footer {
+      background-color: #222;
+    }
+
+    /* الهواتف */
     @media (max-width: 768px) {
       .bio-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
       .bio-text {
         text-align: center;
+      }
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul {
+        justify-content: center;
+      }
+      .hamburger {
+        display: block;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #007bff;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+      }
+      #nav-toggle:checked ~ nav ul {
+        display: flex;
+      }
+      nav ul li a {
+        background-color: white;
+        color: #007bff;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+      }
+      body.dark nav ul {
+        background-color: #222;
+      }
+      body.dark nav ul li a {
+        background-color: #333;
+        color: #eee;
       }
     }
   </style>
@@ -111,7 +216,20 @@
 
   <!-- رأس الصفحة -->
   <header>
+    <label for="nav-toggle" class="hamburger">☰</label>
     <h1>السيرة الذاتية - أكرم الشميري</h1>
+    <input type="checkbox" id="nav-toggle" hidden>
+    <nav>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="bio.html" class="active">السيرة الذاتية</a></li>
+        <li><a href="skills.html">المهارات</a></li>
+        <li><a href="projects.html">المشاريع</a></li>
+        <li><a href="Certificates.html">الشهادات</a></li>
+        <li><a href="Recommendations.html">التوصيات</a></li>
+        <li><a href="contact.html">التواصل</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- القسم الرئيسي -->
@@ -132,7 +250,7 @@
     </div>
   </section>
 
-  <!-- ذيل الصفحة -->
+  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 جميع الحقوق محفوظة لأكرم الشميري</p>
   </footer>
