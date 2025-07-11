@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>بروفايل أكرم الشميري</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
   <!-- زر تبديل الوضع الليلي -->
   <label class="switch" title="تبديل الوضع الليلي">
     <input type="checkbox" id="toggle-dark" />
@@ -20,30 +18,31 @@
     <nav>
       <div class="hamburger" onclick="toggleMenu()">☰</div>
       <ul id="nav-menu">
-        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="bio.html"><i class="fas fa-user"></i> السيرة الذاتية</a></li>
-        <li><a href="skills.html"><i class="fas fa-code"></i> المهارات</a></li>
-        <li><a href="projects.html"><i class="fas fa-briefcase"></i> المشاريع</a></li>
-        <li><a href="Certificates.html"><i class="fas fa-certificate"></i> الشهادات</a></li>
-        <li><a href="Recommendations.html"><i class="fas fa-thumbs-up"></i> التوصيات</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> التواصل</a></li>
+        <li><a href="index.html">الرئيسية</a></li>
+     <li><a href="bio.html">السيرة الذاتية</a></li>
+        <li><a href="skills.html">المهارات</a></li>
+     <li><a href="projects.html">المشاريع</a></li>
+           <li><a href="Certificates.html">الشهادات</a></li>
+        <li><a href="Recommendations.html">التوصيات</a></li>
+        <li><a href="contact.html">التواصل</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="bio-section">
-      <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
+      <img src="avater.jpg" alt="" class="bio-image" />
       <div class="bio-text">
         <h1>أكرم الشميري</h1>
-        <p>مطور ويب متكامل</p>
+        <p>مطور ويب متكامل </p>
       </div>
     </section>
 
+    <!-- قسم النبذة المختصرة -->
     <section class="status-section">
       <h2>نبذة مختصرة</h2>
       <p>
-        مطور ويب أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML, CSS, JavaScript, PHP.
+        مطور ويب  أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML ,CSS JavaScript, PHP
       </p>
     </section>
 
@@ -83,14 +82,24 @@
     </section>
 
     <section class="cv-buttons">
-      <button class="cv-button" onclick="window.open('cv akram.pdf', '_blank')">View CV</button>
-      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button">Download CV</a>
-      <button class="cv-button" onclick="scrollToTop()">Back to Top</button>
+      <button
+        class="cv-button"
+        onclick="window.open('cv akram.pdf', '_blank')"
+        type="button"
+      >
+        View CV
+      </button>
+
+      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
+        > Download CV	 </a
+      >
+      <button class="cv-button" onclick="scrollToTop()"> Back to Top</button>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
+    
   </footer>
 
   <script>
@@ -101,6 +110,5 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
