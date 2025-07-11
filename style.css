@@ -311,19 +311,27 @@ footer {
   }
 }
 
-/* الوضع الليلي للأقسام */
-input#toggle-dark:checked ~ header {
-  background-color: #222 !important;
+/* ====== تعديل الوضع الداكن ====== */
+body.dark {
+  background-color: #121212;
+  color: #ddd;
 }
-input#toggle-dark:checked ~ main section {
+body.dark header {
+  background-color: #222 !important;
+  color: #eee;
+}
+body.dark main section {
   background-color: #333 !important;
   color: #eee !important;
 }
-input#toggle-dark:checked ~ footer {
+body.dark footer {
   background-color: #111 !important;
   color: #ccc !important;
 }
-input#toggle-dark:checked ~ body {
-  background-color: #121212 !important;
-  color: #ddd !important;
+body.dark nav ul li a {
+  background-color: #333;
+  color: #eee;
+}
+body.dark nav ul li a:hover {
+  background-color: #555;
 }
