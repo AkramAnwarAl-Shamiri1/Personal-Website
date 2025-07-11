@@ -3,103 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>بروفايل أكرم الشميري</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>الشهادات | أكرم الشميري</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background-color: #f5f5f5;
+      color: #222;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* زر الوضع الليلي */
+    .switch {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .slider::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      position: absolute;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    header {
+      background-color:  #0A2647;
+      color: white;
+      padding: 1rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content h1 {
+      flex: 1;
+      text-align: center;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    /* زر الهامبرغر */
+    #nav-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      display: none;
+      user-select: none;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    nav ul li a {
+      padding: 0.5rem 1rem;
+      background-color: white;
+      border-radius: 20px;
+      color: #007bff;
+      transition: background 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    body.dark nav ul li a {
+      background-color: #333;
+      color: #ccc;
+    }
+
+    body.dark nav ul li a:hover,
+    body.dark nav ul li a.active {
+      background-color: #555;
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    main h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #007bff;
+    }
+
+    .certificates-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .certificates-list li {
+      margin-bottom: 12px;
+      padding-right: 1.5em;
+      position: relative;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .certificates-list li::before {
+      content: "🔹";
+      position: absolute;
+      right: 0;
+      font-size: 1.3em;
+      line-height: 1;
+      color: #007bff;
+    }
+
+    footer {
+      background-color:  #0A2647;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    body.dark footer {
+      background-color: #222;
+    }
+
+    /* الهاتف والشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #007bff;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+      }
+
+      #nav-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      nav ul li a {
+        background-color: white;
+        color: #007bff;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+      }
+
+      body.dark nav ul {
+        background-color: #222;
+      }
+
+      body.dark nav ul li a {
+        background-color: #333;
+        color: #eee;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- زر تبديل الوضع الليلي -->
-  <label class="switch" title="تبديل الوضع الليلي">
+  <!-- زر الوضع الليلي -->
+  <label class="switch">
     <input type="checkbox" id="toggle-dark" />
     <span class="slider"></span>
   </label>
 
+  <!-- رأس الصفحة -->
   <header>
-    <h1>أكرم الشميري</h1>
+    <div class="header-content">
+      <label for="nav-toggle" class="hamburger">☰</label>
+      <h1>أكرم الشميري</h1>
+    </div>
+    <input type="checkbox" id="nav-toggle" hidden />
     <nav>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <ul id="nav-menu">
-        <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-        <li><a href="bio.html"><i class="fas fa-user"></i> السيرة الذاتية</a></li>
-        <li><a href="skills.html"><i class="fas fa-code"></i> المهارات</a></li>
-        <li><a href="projects.html"><i class="fas fa-briefcase"></i> المشاريع</a></li>
-        <li><a href="Certificates.html"><i class="fas fa-certificate"></i> الشهادات</a></li>
-        <li><a href="Recommendations.html"><i class="fas fa-thumbs-up"></i> التوصيات</a></li>
-        <li><a href="contact.html"><i class="fas fa-envelope"></i> التواصل</a></li>
+      <ul>
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="bio.html">👤 السيرة الذاتية</a></li>
+        <li><a href="skills.html">🛠️ المهارات</a></li>
+        <li><a href="projects.html">💻 المشاريع</a></li>
+        <li><a href="Certificates.html" class="active">📜 الشهادات</a></li>
+        <li><a href="Recommendations.html">👍 التوصيات</a></li>
+        <li><a href="contact.html">✉️ التواصل</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- المحتوى -->
   <main>
-    <section class="bio-section">
-      <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
-      <div class="bio-text">
-        <h1>أكرم الشميري</h1>
-        <p>مطور ويب متكامل</p>
-      </div>
-    </section>
-
-    <section class="status-section">
-      <h2>نبذة مختصرة</h2>
-      <p>
-        مطور ويب أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML, CSS, JavaScript, PHP.
-      </p>
-    </section>
-
-    <section>
-      <h2>المهارات</h2>
-      <ul class="skills-list">
-        <li>HTML and CSS</li>
-        <li>JavaScript and React</li>
-        <li>PHP and MySQL</li>
-        <li>Git and GitHub</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>المشاريع</h2>
-      <ul class="projects-list">
-        <li>موقع شخصي</li>
-        <li>تطبيق مهام</li>
-        <li>لوحة تحكم</li>
-      </ul>
-    </section>
-
     <section>
       <h2>الشهادات</h2>
       <ul class="certificates-list">
-        <li>رخصة حاسوب</li>
-        <li>تطوير ويب</li>
+        <li>رخصة قيادة الحاسوب (ICDL)</li>
+        <li>دورة تطوير الويب باستخدام HTML و CSS و JavaScript</li>
+        <li>أساسيات PHP و MySQL</li>
+        <li>برمجة واجهات المستخدم (Front-End)</li>
       </ul>
-    </section>
-
-    <section>
-      <h2>التوصيات</h2>
-      <ul class="recommendations-list">
-        <li>دعم فني ممتاز - أحمد الشيباني</li>
-        <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
-      </ul>
-    </section>
-
-    <section class="cv-buttons">
-      <button class="cv-button" onclick="window.open('cv akram.pdf', '_blank')">View CV</button>
-      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button">Download CV</a>
-      <button class="cv-button" onclick="scrollToTop()">Back to Top</button>
     </section>
   </main>
 
+  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
 
+  <!-- JavaScript لحفظ واسترجاع الوضع الليلي -->
   <script>
-    function toggleMenu() {
-      document.getElementById("nav-menu").classList.toggle("show");
-    }
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+      const isDark = localStorage.getItem('theme') === 'dark';
+      document.body.classList.toggle('dark', isDark);
+      document.getElementById('toggle-dark').checked = isDark;
+    });
+
+    document.getElementById('toggle-dark').addEventListener('change', function () {
+      if (this.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
   </script>
 
 </body>
