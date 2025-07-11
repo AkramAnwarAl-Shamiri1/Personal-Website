@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
@@ -23,6 +24,9 @@
     a {
       color: #007bff;
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
     }
 
     a:hover {
@@ -68,7 +72,7 @@
     }
 
     header {
-      background-color: #0A2647;
+      background-color:  #0A2647;
       color: white;
       padding: 1rem;
     }
@@ -116,7 +120,10 @@
       border-radius: 20px;
       color: #007bff;
       transition: background 0.3s;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-size: 1rem;
     }
 
     nav ul li a:hover,
@@ -149,14 +156,14 @@
       color: #007bff;
     }
 
-    .recommendations-list {
+    .certificates-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       max-width: 600px;
     }
 
-    .recommendations-list li {
+    .certificates-list li {
       margin-bottom: 12px;
       padding-right: 1.5em;
       position: relative;
@@ -164,7 +171,7 @@
       font-size: 1.1rem;
     }
 
-    .recommendations-list li::before {
+    .certificates-list li::before {
       content: "🔹";
       position: absolute;
       right: 0;
@@ -174,7 +181,7 @@
     }
 
     footer {
-      background-color: #0A2647;
+      background-color:  #0A2647;
       color: white;
       text-align: center;
       padding: 1rem;
@@ -228,7 +235,7 @@
 
   <!-- زر الوضع الليلي -->
   <label class="switch">
-    <input type="checkbox" id="toggle-dark" onclick="document.body.classList.toggle('dark')">
+    <input type="checkbox" id="toggle-dark" />
     <span class="slider"></span>
   </label>
 
@@ -238,21 +245,20 @@
       <label for="nav-toggle" class="hamburger">☰</label>
       <h1>أكرم الشميري</h1>
     </div>
-    <input type="checkbox" id="nav-toggle" hidden>
+    <input type="checkbox" id="nav-toggle" hidden />
     <nav>
       <ul>
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="bio.html">السيرة الذاتية</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-        <li><a href="projects.html">المشاريع</a></li>
-        <li><a href="Certificates.html">الشهادات</a></li>
-        <li><a href="Recommendations.html" class="active">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li>
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="bio.html">👤 السيرة الذاتية</a></li>
+        <li><a href="skills.html">🛠️ المهارات</a></li>
+        <li><a href="projects.html">💻 المشاريع</a></li>
+        <li><a href="Certificates.html" class="active">📜 الشهادات</a></li>
+        <li><a href="Recommendations.html">👍 التوصيات</a></li>
+        <li><a href="contact.html">✉️ التواصل</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- المحتوى -->
   <main>
     <section>
       <h2>التوصيات</h2>
@@ -261,14 +267,31 @@
         <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
       </ul>
     </section>
-  </main>
+</main>
 
   <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
-    </p>
   </footer>
+
+  <!-- JavaScript لحفظ واسترجاع الوضع الليلي -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const isDark = localStorage.getItem('theme') === 'dark';
+      document.body.classList.toggle('dark', isDark);
+      document.getElementById('toggle-dark').checked = isDark;
+    });
+
+    document.getElementById('toggle-dark').addEventListener('change', function () {
+      if (this.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 
 </body>
 </html>
-
