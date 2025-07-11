@@ -3,11 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الصفحة الرئيسية - أكرم الشميري</title>
+  <title>بروفايل أكرم الشميري</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+  <!-- زر تبديل الوضع الليلي -->
+  <label class="switch" title="تبديل الوضع الليلي">
+    <input type="checkbox" id="toggle-dark" />
+    <span class="slider"></span>
+  </label>
+
   <header>
     <h1>أكرم الشميري</h1>
     <nav>
@@ -16,46 +23,69 @@
         <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
         <li><a href="bio.html"><i class="fas fa-user"></i> السيرة الذاتية</a></li>
         <li><a href="skills.html"><i class="fas fa-code"></i> المهارات</a></li>
-        <li><a href="projects.html"><i class="fas fa-folder-open"></i> المشاريع</a></li>
+        <li><a href="projects.html"><i class="fas fa-briefcase"></i> المشاريع</a></li>
         <li><a href="Certificates.html"><i class="fas fa-certificate"></i> الشهادات</a></li>
-        <li><a href="Recommendations.html"><i class="fas fa-comment"></i> التوصيات</a></li>
+        <li><a href="Recommendations.html"><i class="fas fa-thumbs-up"></i> التوصيات</a></li>
         <li><a href="contact.html"><i class="fas fa-envelope"></i> التواصل</a></li>
-        <li><a href="#" id="dark-toggle" title="الوضع الليلي"><i class="fas fa-moon"></i></a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <section class="bio-section">
-      <img src="avater.jpg" alt="صورة أكرم" class="bio-image" />
+      <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
       <div class="bio-text">
         <h1>أكرم الشميري</h1>
-        <p>مطور ويب متكامل بخبرة واسعة في تصميم واجهات المستخدم وتطوير التطبيقات.</p>
+        <p>مطور ويب متكامل</p>
       </div>
     </section>
 
     <section class="status-section">
-      <h2><i class="fas fa-info-circle"></i> من أنا؟</h2>
+      <h2>نبذة مختصرة</h2>
       <p>
-        أتمتع بخبرة في تطوير المواقع باستخدام HTML، CSS، JavaScript، PHP، وGit.  
-        أسعى لصنع تجارب استخدام احترافية وعصرية لكل زائر.
+        مطور ويب أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML, CSS, JavaScript, PHP.
       </p>
     </section>
 
     <section>
-      <h2><i class="fas fa-bolt"></i> ماذا أقدم؟</h2>
+      <h2>المهارات</h2>
       <ul class="skills-list">
-        <li><i class="fas fa-check-circle"></i> مواقع شخصية احترافية</li>
-        <li><i class="fas fa-check-circle"></i> لوحات تحكم ديناميكية</li>
-        <li><i class="fas fa-check-circle"></i> صفحات هبوط تسويقية</li>
-        <li><i class="fas fa-check-circle"></i> دعم وصيانة فنية</li>
+        <li>HTML and CSS</li>
+        <li>JavaScript and React</li>
+        <li>PHP and MySQL</li>
+        <li>Git and GitHub</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>المشاريع</h2>
+      <ul class="projects-list">
+        <li>موقع شخصي</li>
+        <li>تطبيق مهام</li>
+        <li>لوحة تحكم</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>الشهادات</h2>
+      <ul class="certificates-list">
+        <li>رخصة حاسوب</li>
+        <li>تطوير ويب</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>التوصيات</h2>
+      <ul class="recommendations-list">
+        <li>دعم فني ممتاز - أحمد الشيباني</li>
+        <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
       </ul>
     </section>
 
     <section class="cv-buttons">
-      <a href="cv akram.pdf" target="_blank" class="cv-button"><i class="fas fa-eye"></i> عرض السيرة</a>
-      <a href="cv akram.pdf" download class="cv-button"><i class="fas fa-download"></i> تحميل السيرة</a>
-      <button class="cv-button" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i> أعلى</button>
+      <button class="cv-button" onclick="window.open('cv akram.pdf', '_blank')">View CV</button>
+      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button">Download CV</a>
+      <button class="cv-button" onclick="scrollToTop()">Back to Top</button>
     </section>
   </main>
 
@@ -63,6 +93,14 @@
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("show");
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
