@@ -1,23 +1,103 @@
-/* حركة عند تحميل الصفحة */
-.bio-section {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease-out forwards;
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سيرة ذاتية - تأثيرات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f0f4f8;
+      color: #222;
+    }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .bio-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1.2s ease-out forwards;
+    }
 
-/* تأثير hover على الصورة */
-.bio-image {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-.bio-image:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-}
+    .bio-image {
+      width: 200px;
+      border-radius: 10px;
+      border: 3px solid #007bff;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .bio-image:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    }
+
+    .bio-text {
+      flex: 1;
+    }
+
+    .bio-text h2 {
+      margin-top: 0;
+    }
+
+    .bio-text ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bio-text ul li {
+      margin-bottom: 10px;
+      padding-right: 1.5em;
+      position: relative;
+    }
+
+    .bio-text ul li::before {
+      content: "🔹";
+      position: absolute;
+      right: 0;
+    }
+
+    @media (max-width: 768px) {
+      .bio-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .bio-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="bio-section">
+    <img src="https://via.placeholder.com/200" alt="صورة أكرم الشميري" class="bio-image" />
+    <div class="bio-text">
+      <h2>نبذة شخصية</h2>
+      <p>أنا أكرم الشميري، مطور ويب متكامل. أعمل على تصميم وتطوير مواقع ويب احترافية باستخدام HTML, CSS, JavaScript, PHP وغيرها.</p>
+
+      <h2>المعلومات الشخصية</h2>
+      <ul>
+        <li><strong>الاسم:</strong> أكرم الشميري</li>
+        <li><strong>الموقع:</strong> اليمن - تعز</li>
+        <li><strong>الهاتف:</strong> 777498052</li>
+        <li><strong>البريد:</strong> akramalshmiri2019@gmail.com</li>
+        <li><strong>المؤهل:</strong> بكالوريوس تقنية معلومات</li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>
