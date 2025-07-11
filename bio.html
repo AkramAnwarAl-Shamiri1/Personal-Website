@@ -13,6 +13,28 @@
       color: #222;
     }
 
+    /* رأس الصفحة وذيلها بشكل قسم المهارات */
+    header, footer {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #007bff;
+      font-size: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+      color: #555;
+      font-size: 1rem;
+    }
+
     .bio-section {
       display: flex;
       flex-wrap: wrap;
@@ -21,6 +43,10 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1.2s ease-out forwards;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
     @keyframes fadeInUp {
@@ -48,6 +74,7 @@
 
     .bio-text h2 {
       margin-top: 0;
+      color: #004080;
     }
 
     .bio-text ul {
@@ -82,6 +109,12 @@
 </head>
 <body>
 
+  <!-- رأس الصفحة -->
+  <header>
+    <h1>السيرة الذاتية - أكرم الشميري</h1>
+  </header>
+
+  <!-- القسم الرئيسي -->
   <section class="bio-section">
     <img src="https://via.placeholder.com/200" alt="صورة أكرم الشميري" class="bio-image" />
     <div class="bio-text">
@@ -98,6 +131,11 @@
       </ul>
     </div>
   </section>
+
+  <!-- ذيل الصفحة -->
+  <footer>
+    <p>&copy; 2025 جميع الحقوق محفوظة لأكرم الشميري</p>
+  </footer>
 
 </body>
 </html>
