@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>بروفايل أكرم الشميري</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    nav ul li a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+  </style>
 </head>
 <body>
   <!-- زر تبديل الوضع الليلي -->
@@ -18,13 +25,13 @@
     <nav>
       <div class="hamburger" onclick="toggleMenu()">☰</div>
       <ul id="nav-menu">
-        <li><a href="index.html">الرئيسية</a></li>
-     <li><a href="bio.html">السيرة الذاتية</a></li>
-        <li><a href="skills.html">المهارات</a></li>
-     <li><a href="projects.html">المشاريع</a></li>
-           <li><a href="Certificates.html">الشهادات</a></li>
-        <li><a href="Recommendations.html">التوصيات</a></li>
-        <li><a href="contact.html">التواصل</a></li>
+        <li><a href="index.html">🏠 الرئيسية</a></li>
+        <li><a href="bio.html">👤 السيرة الذاتية</a></li>
+        <li><a href="skills.html">🛠️ المهارات</a></li>
+        <li><a href="projects.html">💻 المشاريع</a></li>
+        <li><a href="Certificates.html">📜 الشهادات</a></li>
+        <li><a href="Recommendations.html">👍 التوصيات</a></li>
+        <li><a href="contact.html">✉️ التواصل</a></li>
       </ul>
     </nav>
   </header>
@@ -42,7 +49,7 @@
     <section class="status-section">
       <h2>نبذة مختصرة</h2>
       <p>
-        مطور ويب  أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML ,CSS JavaScript, PHP
+        مطور ويب أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML وCSS وJavaScript وPHP.
       </p>
     </section>
 
@@ -90,22 +97,20 @@
         View CV
       </button>
 
-      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button"
-        > Download CV	 </a
-      >
-      <button class="cv-button" onclick="scrollToTop()"> Back to Top</button>
+      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button">Download CV</a>
+      <button class="cv-button" onclick="scrollToTop()">Back to Top</button>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
-    
   </footer>
 
   <script>
     function toggleMenu() {
       document.getElementById("nav-menu").classList.toggle("show");
     }
+
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
