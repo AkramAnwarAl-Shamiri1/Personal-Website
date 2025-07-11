@@ -2,15 +2,243 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الشهادات | أكرم الشميري</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background-color: #f5f5f5;
+      color: #222;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* زر الوضع الليلي */
+    .switch {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
+      display: inline-block;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .slider::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      position: absolute;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content h1 {
+      flex: 1;
+      text-align: center;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    /* زر الهامبرغر */
+    #nav-toggle {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0 1rem;
+      display: none;
+      user-select: none;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    nav ul li a {
+      padding: 0.5rem 1rem;
+      background-color: white;
+      border-radius: 20px;
+      color: #007bff;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #0056b3;
+      color: white;
+    }
+
+    body.dark nav ul li a {
+      background-color: #333;
+      color: #ccc;
+    }
+
+    body.dark nav ul li a:hover,
+    body.dark nav ul li a.active {
+      background-color: #555;
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    main h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #007bff;
+    }
+
+    .certificates-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    .certificates-list li {
+      margin-bottom: 12px;
+      padding-right: 1.5em;
+      position: relative;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    .certificates-list li::before {
+      content: "🔹";
+      position: absolute;
+      right: 0;
+      font-size: 1.3em;
+      line-height: 1;
+      color: #007bff;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    body.dark footer {
+      background-color: #222;
+    }
+
+    /* الهاتف والشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #007bff;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
+      }
+
+      #nav-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      nav ul li a {
+        background-color: white;
+        color: #007bff;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+      }
+
+      body.dark nav ul {
+        background-color: #222;
+      }
+
+      body.dark nav ul li a {
+        background-color: #333;
+        color: #eee;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <!-- زر الوضع الليلي -->
+  <label class="switch">
+    <input type="checkbox" id="toggle-dark" onclick="document.body.classList.toggle('dark')">
+    <span class="slider"></span>
+  </label>
+
   <!-- رأس الصفحة -->
   <header>
-    <h1>أكرم الشميري</h1>
+    <div class="header-content">
+      <label for="nav-toggle" class="hamburger">☰</label>
+      <h1>أكرم الشميري</h1>
+    </div>
+    <input type="checkbox" id="nav-toggle" hidden>
     <nav>
       <ul>
         <li><a href="index.html">الرئيسية</a></li>
@@ -39,7 +267,7 @@
 
   <!-- التذييل -->
   <footer>
-    <p>&copy; 2025 - أكرم الشميري | البريد:
+    <p>&copy; 2025 - أكرم الشميري | البريد: 
       <a href="mailto:akramalshmiri2019@gmail.com">akramalshmiri2019@gmail.com</a>
     </p>
   </footer>
