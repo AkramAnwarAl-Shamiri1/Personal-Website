@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الشهادات | أكرم الشميري</title>
   <style>
+    /* الخط الأساسي */
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -15,11 +16,13 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
+    /* الوضع الداكن */
     body.dark {
       background-color: #121212;
       color: #eee;
     }
 
+    /* الروابط */
     a {
       color: #007bff;
       text-decoration: none;
@@ -27,7 +30,6 @@
       align-items: center;
       gap: 0.5em;
     }
-
     a:hover {
       text-decoration: underline;
     }
@@ -39,11 +41,9 @@
       left: 10px;
       z-index: 1000;
     }
-
     .switch input {
       display: none;
     }
-
     .slider {
       width: 40px;
       height: 20px;
@@ -53,7 +53,6 @@
       position: relative;
       cursor: pointer;
     }
-
     .slider::before {
       content: '';
       width: 18px;
@@ -65,23 +64,22 @@
       left: 1px;
       transition: 0.3s;
     }
-
     input:checked + .slider::before {
       transform: translateX(20px);
     }
 
+    /* رأس الصفحة */
     header {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       padding: 1rem;
+      position: relative;
     }
-
     .header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     .header-content h1 {
       flex: 1;
       text-align: center;
@@ -93,7 +91,6 @@
     #nav-toggle {
       display: none;
     }
-
     .hamburger {
       font-size: 2rem;
       cursor: pointer;
@@ -103,6 +100,7 @@
       color: white;
     }
 
+    /* قائمة التنقل */
     nav ul {
       list-style: none;
       padding: 0;
@@ -112,7 +110,6 @@
       gap: 10px;
       justify-content: center;
     }
-
     nav ul li a {
       padding: 0.5rem 1rem;
       background-color: white;
@@ -124,30 +121,32 @@
       gap: 0.5em;
       font-size: 1rem;
     }
-
     nav ul li a:hover,
     nav ul li a.active {
       background-color: #0056b3;
       color: white;
     }
 
+    /* الوضع الداكن للقائمة */
+    body.dark nav ul {
+      background-color: transparent;
+    }
     body.dark nav ul li a {
       background-color: #333;
       color: #ccc;
     }
-
     body.dark nav ul li a:hover,
     body.dark nav ul li a.active {
       background-color: #555;
       color: white;
     }
 
+    /* محتوى الصفحة */
     main {
       padding: 2rem;
       max-width: 900px;
       margin: auto;
     }
-
     main h2 {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -155,13 +154,13 @@
       color: #007bff;
     }
 
+    /* قائمة الشهادات */
     .certificates-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       max-width: 600px;
     }
-
     .certificates-list li {
       margin-bottom: 12px;
       padding-right: 1.5em;
@@ -169,7 +168,6 @@
       line-height: 1.6;
       font-size: 1.1rem;
     }
-
     .certificates-list li::before {
       content: "🔹";
       position: absolute;
@@ -179,14 +177,14 @@
       color: #007bff;
     }
 
+    /* التذييل */
     footer {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
     }
-
     body.dark footer {
       background-color: #222;
     }
@@ -196,7 +194,6 @@
       .hamburger {
         display: block;
       }
-
       nav ul {
         display: none;
         flex-direction: column;
@@ -205,11 +202,9 @@
         border-radius: 10px;
         margin-top: 1rem;
       }
-
       #nav-toggle:checked ~ nav ul {
         display: flex;
       }
-
       nav ul li a {
         background-color: white;
         color: #007bff;
@@ -218,11 +213,9 @@
         margin-bottom: 5px;
         border-radius: 10px;
       }
-
       body.dark nav ul {
         background-color: #222;
       }
-
       body.dark nav ul li a {
         background-color: #333;
         color: #eee;
@@ -276,7 +269,7 @@
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
 
-  <!-- JavaScript لحفظ واسترجاع الوضع الليلي -->
+  <!-- جافاسكريبت لتخزين واسترجاع وضع الليل -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const isDark = localStorage.getItem('theme') === 'dark';
