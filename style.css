@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background-color: #f0f4f8;
-  color: #222;
+  color: #000000; /* نص أسود قوي */
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -164,7 +164,7 @@ main {
 .bio-text p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #444;
+  color: #000000; /* نص أسود قوي */
   margin-top: 10px;
 }
 
@@ -184,7 +184,7 @@ main {
 .status-section p {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #444;
+  color: #000000; /* نص أسود قوي */
 }
 
 /* قوائم العناصر */
@@ -199,7 +199,7 @@ main {
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 18px;
-  color: #222;
+  color: #000000; /* نص أسود قوي */
   transition: background-color 0.3s ease;
 }
 .skills-list li:hover,
