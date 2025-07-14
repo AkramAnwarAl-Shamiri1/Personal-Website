@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>المشاريع | أكرم الشميري</title>
+  <title>المشاريع | أكرم الشميري</title>
   <style>
-    body {
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
       padding: 0;
       direction: rtl;
@@ -15,7 +18,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark {
+    html:has(#toggle-dark:checked) body {
       background-color: #121212;
       color: #eee;
     }
@@ -32,7 +35,7 @@
       text-decoration: underline;
     }
 
-    /* زر الوضع الليلي */
+    /* زر الوضع الداكن */
     .switch {
       position: fixed;
       top: 10px;
@@ -66,12 +69,12 @@
       transition: 0.3s;
     }
 
-    input:checked + .slider::before {
+    #toggle-dark:checked + .slider::before {
       transform: translateX(20px);
     }
 
     header {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       padding: 1rem;
     }
@@ -89,7 +92,6 @@
       font-size: 1.8rem;
     }
 
-    /* زر الهامبرغر */
     #nav-toggle {
       display: none;
     }
@@ -131,13 +133,13 @@
       color: white;
     }
 
-    body.dark nav ul li a {
+    html:has(#toggle-dark:checked) nav ul li a {
       background-color: #333;
       color: #ccc;
     }
 
-    body.dark nav ul li a:hover,
-    body.dark nav ul li a.active {
+    html:has(#toggle-dark:checked) nav ul li a:hover,
+    html:has(#toggle-dark:checked) nav ul li a.active {
       background-color: #555;
       color: white;
     }
@@ -155,14 +157,18 @@
       color: #007bff;
     }
 
-    .certificates-list {
+    html:has(#toggle-dark:checked) main h2 {
+      color: #4ea3f1;
+    }
+
+    .projects-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       max-width: 600px;
     }
 
-    .certificates-list li {
+    .projects-list li {
       margin-bottom: 12px;
       padding-right: 1.5em;
       position: relative;
@@ -170,7 +176,7 @@
       font-size: 1.1rem;
     }
 
-    .certificates-list li::before {
+    .projects-list li::before {
       content: "🔹";
       position: absolute;
       right: 0;
@@ -179,19 +185,22 @@
       color: #007bff;
     }
 
+    html:has(#toggle-dark:checked) .projects-list li::before {
+      color: #4ea3f1;
+    }
+
     footer {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
     }
 
-    body.dark footer {
+    html:has(#toggle-dark:checked) footer {
       background-color: #222;
     }
 
-    /* الهاتف والشاشات الصغيرة */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -219,11 +228,11 @@
         border-radius: 10px;
       }
 
-      body.dark nav ul {
+      html:has(#toggle-dark:checked) nav ul {
         background-color: #222;
       }
 
-      body.dark nav ul li a {
+      html:has(#toggle-dark:checked) nav ul li a {
         background-color: #333;
         color: #eee;
       }
@@ -232,7 +241,7 @@
 </head>
 <body>
 
-  <!-- زر الوضع الليلي -->
+  <!-- زر الوضع الداكن -->
   <label class="switch">
     <input type="checkbox" id="toggle-dark" />
     <span class="slider"></span>
@@ -250,7 +259,7 @@
         <li><a href="index.html">🏠 الرئيسية</a></li>
         <li><a href="bio.html">👤 السيرة الذاتية</a></li>
         <li><a href="skills.html">🛠️ المهارات</a></li>
-         <li><a href="projects.html" class="active">💻 المشاريع</a></li>
+        <li><a href="projects.html" class="active">💻 المشاريع</a></li>
         <li><a href="Certificates.html">📜 الشهادات</a></li>
         <li><a href="Recommendations.html">👍 التوصيات</a></li>
         <li><a href="contact.html">✉️ التواصل</a></li>
@@ -259,7 +268,7 @@
   </header>
 
   <!-- المحتوى -->
- <main>
+  <main>
     <section>
       <h2>المشاريع</h2>
       <ul class="projects-list">
@@ -274,25 +283,6 @@
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
-
-  <!-- JavaScript لحفظ واسترجاع الوضع الليلي -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const isDark = localStorage.getItem('theme') === 'dark';
-      document.body.classList.toggle('dark', isDark);
-      document.getElementById('toggle-dark').checked = isDark;
-    });
-
-    document.getElementById('toggle-dark').addEventListener('change', function () {
-      if (this.checked) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
 
 </body>
 </html>
