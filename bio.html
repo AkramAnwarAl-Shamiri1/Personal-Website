@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>السيرة الذاتية</title>
   <style>
-    body {
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
       padding: 2rem;
       background: #f0f4f8;
@@ -14,23 +17,31 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark {
+    html:has(#theme-toggle:checked) body {
       background-color: #121212;
       color: #eee;
     }
 
-    .theme-toggle {
+    .theme-toggle-wrapper {
       position: fixed;
       top: 1rem;
       left: 1rem;
+      z-index: 1000;
+    }
+
+    .theme-toggle-wrapper input {
+      display: none;
+    }
+
+    .theme-toggle-label {
       background-color: #0A2647;
       color: white;
       border: none;
       border-radius: 50px;
       padding: 0.5rem 1rem;
-      cursor: pointer;
       font-size: 1rem;
-      z-index: 1000;
+      cursor: pointer;
+      display: inline-block;
     }
 
     header {
@@ -39,7 +50,6 @@
       padding: 2rem;
       border-radius: 20px;
       margin-bottom: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -69,9 +79,8 @@
       border-radius: 20px;
       color: #007bff;
       text-decoration: none;
-      transition: background 0.3s;
-      display: inline-block;
       font-weight: 600;
+      transition: background 0.3s;
     }
 
     nav ul li a:hover,
@@ -80,13 +89,13 @@
       color: white;
     }
 
-    body.dark nav ul li a {
+    html:has(#theme-toggle:checked) nav ul li a {
       background-color: #333;
       color: #ccc;
     }
 
-    body.dark nav ul li a:hover,
-    body.dark nav ul li a.active {
+    html:has(#theme-toggle:checked) nav ul li a:hover,
+    html:has(#theme-toggle:checked) nav ul li a.active {
       background-color: #555;
       color: white;
     }
@@ -102,12 +111,11 @@
       background: white;
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       max-width: 900px;
       margin: 0 auto;
     }
 
-    body.dark .bio-section {
+    html:has(#theme-toggle:checked) .bio-section {
       background-color: #1e1e1e;
       color: #eee;
     }
@@ -141,8 +149,8 @@
       color: #004080;
     }
 
-    body.dark .bio-text h1,
-    body.dark .bio-text h2 {
+    html:has(#theme-toggle:checked) .bio-text h1,
+    html:has(#theme-toggle:checked) .bio-text h2 {
       color: #4ea3f1;
     }
 
@@ -170,30 +178,26 @@
       padding: 1rem 2rem;
       border-radius: 20px;
       margin-top: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    body.dark footer {
+    html:has(#theme-toggle:checked) footer {
       background-color: #222;
     }
 
-    /* زر الهامبرغر */
     .hamburger {
       display: none;
       font-size: 30px;
       cursor: pointer;
       color: white;
-      user-select: none;
       position: absolute;
       top: 20px;
       right: 20px;
       z-index: 1100;
     }
 
-    /* القائمة عند الشاشات الصغيرة */
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -205,20 +209,17 @@
         top: 70px;
         width: 100%;
         right: 0;
-        z-index: 1050;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       }
 
       #nav-toggle:checked + nav ul {
         display: flex;
-        animation: fadeInMenu 0.4s ease forwards;
       }
 
       nav ul li a {
         width: 100%;
         padding: 12px 0;
-        font-size: 18px;
         text-align: center;
+        font-size: 18px;
         border-radius: 0;
         margin: 0 10px;
       }
@@ -237,25 +238,16 @@
         text-align: center;
       }
     }
-
-    @keyframes fadeInMenu {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
   </style>
 </head>
 <body>
 
-  <!-- زر تبديل الوضع -->
-  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <!-- زر الوضع الداكن (CSS فقط) -->
+  <div class="theme-toggle-wrapper">
+    <input type="checkbox" id="theme-toggle" />
+    <label for="theme-toggle" class="theme-toggle-label">🌙</label>
+  </div>
 
-  <!-- رأس الصفحة -->
   <header>
     <div class="header-content">
       <label for="nav-toggle" class="hamburger" title="القائمة">☰</label>
@@ -265,17 +257,16 @@
     <nav>
       <ul>
         <li><a href="index.html">🏠 الرئيسية</a></li>
-         <li><a href="bio.html" class="active">👤السيرة الذاتية</a></li>
+        <li><a href="bio.html" class="active">👤 السيرة الذاتية</a></li>
         <li><a href="skills.html">🛠️ المهارات</a></li>
         <li><a href="projects.html">💻 المشاريع</a></li>
-        <li><a href="Certificates.html"> 📜  الشهادات</a></li>
+        <li><a href="Certificates.html">📜 الشهادات</a></li>
         <li><a href="Recommendations.html">👍 التوصيات</a></li>
         <li><a href="contact.html">✉️ التواصل</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- القسم الرئيسي -->
   <section class="bio-section">
     <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
     <div class="bio-text">
@@ -294,31 +285,9 @@
     </div>
   </section>
 
-  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
-
-  <script>
-    // تفعيل الوضع الليلي عند تحميل الصفحة حسب التخزين
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark');
-    }
-
-    // تبديل الوضع الليلي وحفظ التفضيل
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-      const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-      localStorage.setItem('theme', currentTheme);
-    }
-
-    // إغلاق القائمة عند الضغط على رابط (لتحسين تجربة المستخدم في الجوال)
-    document.querySelectorAll('nav ul li a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('nav-toggle').checked = false;
-      });
-    });
-  </script>
 
 </body>
 </html>
