@@ -3,191 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>الرئيسية | أكرم الشميري</title>
+  <title>بروفايل أكرم الشميري</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
-    html {
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #f0f4f8;
-      color: #222;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    html:has(#theme-toggle:checked) body {
-      background-color: #121212;
-      color: #eee;
-    }
-
-    .theme-toggle-wrapper {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      z-index: 1000;
-    }
-
-    .theme-toggle-wrapper input {
-      display: none;
-    }
-
-    .theme-toggle-label {
-      background-color: #0A2647;
-      color: white;
-      border-radius: 50px;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    header {
-      background-color: #0A2647;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      position: relative;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
     nav ul li a {
-      padding: 0.5rem 1rem;
-      background-color: white;
-      border-radius: 20px;
-      color: #007bff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    nav ul li a:hover,
-    nav ul li a.active {
-      background-color: #0056b3;
-      color: white;
-    }
-
-    html:has(#theme-toggle:checked) nav ul li a {
-      background-color: #333;
-      color: #ccc;
-    }
-
-    html:has(#theme-toggle:checked) nav ul li a:hover,
-    html:has(#theme-toggle:checked) nav ul li a.active {
-      background-color: #555;
-      color: white;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      color: white;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      z-index: 1100;
-    }
-
-    #nav-toggle {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #0A2647;
-        border-radius: 10px;
-        padding: 10px 0;
-        position: absolute;
-        top: 60px;
-        width: 100%;
-        right: 0;
-      }
-
-      #nav-toggle:checked + nav ul {
-        display: flex;
-      }
-
-      nav ul li a {
-        width: 100%;
-        padding: 12px 0;
-        text-align: center;
-        border-radius: 0;
-        margin: 0 10px;
-      }
-
-      html:has(#theme-toggle:checked) nav ul {
-        background-color: #222;
-      }
-
-      html:has(#theme-toggle:checked) nav ul li a {
-        background-color: #333;
-        color: #eee;
-      }
-    }
-
-    main {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    main h2 {
-      color: #007bff;
-    }
-
-    html:has(#theme-toggle:checked) main h2 {
-      color: #4ea3f1;
-    }
-
-    footer {
-      background-color: #0A2647;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-
-    html:has(#theme-toggle:checked) footer {
-      background-color: #222;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
     }
   </style>
 </head>
 <body>
 
-  <!-- زر الوضع الداكن -->
-  <div class="theme-toggle-wrapper">
-    <input type="checkbox" id="theme-toggle" />
-    <label for="theme-toggle" class="theme-toggle-label">🌙</label>
-  </div>
+  <!-- تفعيل الهامبرغر بدون جافاسكريبت -->
+  <input type="checkbox" id="menu-toggle" hidden />
+  <label class="hamburger" for="menu-toggle" aria-label="تبديل القائمة">☰</label>
 
-  <!-- رأس الصفحة -->
+  <!-- زر تبديل الوضع الليلي بدون جافاسكريبت -->
+  <input type="checkbox" id="toggle-dark" hidden />
+  <label class="switch" for="toggle-dark" title="تبديل الوضع الليلي">
+    <span class="slider"></span>
+  </label>
+
   <header>
-    <label for="nav-toggle" class="hamburger">☰</label>
     <h1>أكرم الشميري</h1>
-    <input type="checkbox" id="nav-toggle" hidden />
     <nav>
-      <ul>
-        <li><a href="index.html" class="active">🏠 الرئيسية</a></li>
+      <ul id="nav-menu">
+        <li><a href="index.html">🏠 الرئيسية</a></li>
         <li><a href="bio.html">👤 السيرة الذاتية</a></li>
         <li><a href="skills.html">🛠️ المهارات</a></li>
         <li><a href="projects.html">💻 المشاريع</a></li>
@@ -198,13 +40,72 @@
     </nav>
   </header>
 
-  <!-- المحتوى -->
   <main>
-    <h2>مرحبًا بك في موقعي الشخصي</h2>
-    <p>استعرض سيرتي الذاتية، مهاراتي، مشاريعي، والشهادات التي حصلت عليها.</p>
+    <section class="bio-section">
+      <img src="avater.jpg" alt="" class="bio-image" />
+      <div class="bio-text">
+        <h1>أكرم الشميري</h1>
+        <p>مطور ويب متكامل </p>
+      </div>
+    </section>
+
+    <!-- قسم النبذة المختصرة -->
+    <section class="status-section">
+      <h2>نبذة مختصرة</h2>
+      <p>
+        مطور ويب أتمتع بخبرة واسعة في تصميم وتطوير واجهات المستخدم وتطبيقات الويب باستخدام أحدث تقنيات HTML ,CSS ,JavaScript ,PHP
+      </p>
+    </section>
+
+    <section>
+      <h2>المهارات</h2>
+      <ul class="skills-list">
+        <li>HTML and CSS</li>
+        <li>JavaScript and React</li>
+        <li>PHP and MySQL</li>
+        <li>Git and GitHub</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>المشاريع</h2>
+      <ul class="projects-list">
+        <li>موقع شخصي</li>
+        <li>تطبيق مهام</li>
+        <li>لوحة تحكم</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>الشهادات</h2>
+      <ul class="certificates-list">
+        <li>رخصة حاسوب</li>
+        <li>تطوير ويب</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>التوصيات</h2>
+      <ul class="recommendations-list">
+        <li>دعم فني ممتاز - أحمد الشيباني</li>
+        <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
+      </ul>
+    </section>
+
+    <section class="cv-buttons">
+      <button
+        class="cv-button"
+        onclick="window.open('cv akram.pdf', '_blank')"
+        type="button"
+      >
+        View CV
+      </button>
+
+      <a href="cv akram.pdf" download="CV_Akram.pdf" class="cv-button">Download CV</a>
+      <button class="cv-button" onclick="window.scrollTo({top:0, behavior:'smooth'})">Back to Top</button>
+    </section>
   </main>
 
-  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
