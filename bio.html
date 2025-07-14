@@ -5,31 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>السيرة الذاتية | أكرم الشميري</title>
   <style>
-    body {
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      direction: rtl;
-      background-color: #f5f5f5;
+      background: #f0f4f8;
       color: #222;
       transition: background-color 0.3s, color 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: pageFadeIn 0.8s ease-out forwards;
+    }
+
+    @keyframes pageFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     html:has(#theme-toggle:checked) body {
       background-color: #121212;
       color: #eee;
-    }
-
-    a {
-      color: #007bff;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .theme-toggle-wrapper {
@@ -46,10 +46,12 @@
     .theme-toggle-label {
       background-color: #0A2647;
       color: white;
+      border: none;
       border-radius: 50px;
       padding: 0.5rem 1rem;
       font-size: 1rem;
       cursor: pointer;
+      display: inline-block;
     }
 
     header {
@@ -99,7 +101,8 @@
       background-color: white;
       border-radius: 20px;
       color: #007bff;
-      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 600;
       transition: background 0.3s;
     }
 
@@ -120,12 +123,6 @@
       color: white;
     }
 
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
     .bio-section {
       display: flex;
       flex-wrap: wrap;
@@ -134,6 +131,8 @@
       background: white;
       padding: 2rem;
       border-radius: 20px;
+      max-width: 900px;
+      margin: 2rem auto;
     }
 
     html:has(#theme-toggle:checked) .bio-section {
@@ -145,17 +144,25 @@
       width: 200px;
       border-radius: 10px;
       border: 3px solid #007bff;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .bio-image:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
     }
 
     .bio-text {
       flex: 1;
     }
 
+    .bio-text h1,
     .bio-text h2 {
-      color: #007bff;
       margin-top: 0;
+      color: #004080;
     }
 
+    html:has(#theme-toggle:checked) .bio-text h1,
     html:has(#theme-toggle:checked) .bio-text h2 {
       color: #4ea3f1;
     }
@@ -181,22 +188,20 @@
       background-color: #0A2647;
       color: white;
       text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      margin: 2rem auto;
+      max-width: 900px;
     }
 
     html:has(#theme-toggle:checked) footer {
       background-color: #222;
     }
 
-    /* استجابة الهاتف */
+    /* شاشات صغيرة */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
-      }
-
-      nav {
-        position: relative;
       }
 
       nav ul {
@@ -261,7 +266,7 @@
   <!-- رأس الصفحة -->
   <header>
     <div class="header-content">
-      <label for="nav-toggle" class="hamburger">☰</label>
+      <label for="nav-toggle" class="hamburger" title="القائمة">☰</label>
       <h1>أكرم الشميري</h1>
     </div>
     <input type="checkbox" id="nav-toggle" hidden />
@@ -278,25 +283,24 @@
     </nav>
   </header>
 
-  <!-- المحتوى -->
-  <main>
-    <section class="bio-section">
-      <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
-      <div class="bio-text">
-        <h2>نبذة شخصية</h2>
-        <p>أنا أكرم الشميري، مطور ويب متكامل. أعمل على تصميم وتطوير مواقع ويب احترافية باستخدام HTML, CSS, JavaScript, PHP وغيرها.</p>
+  <!-- محتوى السيرة -->
+  <section class="bio-section">
+    <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
+    <div class="bio-text">
+      <h1>السيرة الذاتية</h1>
+      <h2>نبذة شخصية</h2>
+      <p>أنا أكرم الشميري، مطور ويب متكامل. أعمل على تصميم وتطوير مواقع ويب احترافية باستخدام HTML, CSS, JavaScript, PHP وغيرها.</p>
 
-        <h2>المعلومات الشخصية</h2>
-        <ul>
-          <li><strong>الاسم:</strong> أكرم الشميري</li>
-          <li><strong>الموقع:</strong> اليمن - تعز</li>
-          <li><strong>الهاتف:</strong> 777498052</li>
-          <li><strong>البريد:</strong> akramalshmiri2019@gmail.com</li>
-          <li><strong>المؤهل:</strong> بكالوريوس تقنية معلومات</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+      <h2>المعلومات الشخصية</h2>
+      <ul>
+        <li><strong>الاسم:</strong> أكرم الشميري</li>
+        <li><strong>الموقع:</strong> اليمن - تعز</li>
+        <li><strong>الهاتف:</strong> 777498052</li>
+        <li><strong>البريد:</strong> akramalshmiri2019@gmail.com</li>
+        <li><strong>المؤهل:</strong> بكالوريوس تقنية معلومات</li>
+      </ul>
+    </div>
+  </section>
 
   <!-- التذييل -->
   <footer>
