@@ -5,24 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الشهادات | أكرم الشميري</title>
   <style>
-    /* الخط الأساسي */
-    body {
+    /* الأساس */
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
-      padding: 0;
-      direction: rtl;
       background-color: #f5f5f5;
       color: #222;
       transition: background-color 0.3s, color 0.3s;
     }
 
-    /* الوضع الداكن */
-    body.dark {
+    /* عند تفعيل الوضع الليلي */
+    html:has(#toggle-dark:checked) body {
       background-color: #121212;
       color: #eee;
     }
 
-    /* الروابط */
+    /* روابط */
     a {
       color: #007bff;
       text-decoration: none;
@@ -64,22 +65,24 @@
       left: 1px;
       transition: 0.3s;
     }
-    input:checked + .slider::before {
+    #toggle-dark:checked + .slider::before {
       transform: translateX(20px);
     }
 
-    /* رأس الصفحة */
+    /* الهيدر */
     header {
       background-color: #0A2647;
       color: white;
       padding: 1rem;
       position: relative;
     }
+
     .header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .header-content h1 {
       flex: 1;
       text-align: center;
@@ -87,10 +90,11 @@
       font-size: 1.8rem;
     }
 
-    /* زر الهامبرغر */
+    /* الهامبرغر */
     #nav-toggle {
       display: none;
     }
+
     .hamburger {
       font-size: 2rem;
       cursor: pointer;
@@ -100,7 +104,6 @@
       color: white;
     }
 
-    /* قائمة التنقل */
     nav ul {
       list-style: none;
       padding: 0;
@@ -110,43 +113,41 @@
       gap: 10px;
       justify-content: center;
     }
+
     nav ul li a {
       padding: 0.5rem 1rem;
       background-color: white;
       border-radius: 20px;
       color: #007bff;
       transition: background 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
       font-size: 1rem;
     }
+
     nav ul li a:hover,
     nav ul li a.active {
       background-color: #0056b3;
       color: white;
     }
 
-    /* الوضع الداكن للقائمة */
-    body.dark nav ul {
-      background-color: transparent;
-    }
-    body.dark nav ul li a {
+    /* الوضع الداكن في القائمة */
+    html:has(#toggle-dark:checked) nav ul li a {
       background-color: #333;
       color: #ccc;
     }
-    body.dark nav ul li a:hover,
-    body.dark nav ul li a.active {
+
+    html:has(#toggle-dark:checked) nav ul li a:hover,
+    html:has(#toggle-dark:checked) nav ul li a.active {
       background-color: #555;
       color: white;
     }
 
-    /* محتوى الصفحة */
+    /* المحتوى */
     main {
       padding: 2rem;
       max-width: 900px;
       margin: auto;
     }
+
     main h2 {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -154,26 +155,25 @@
       color: #007bff;
     }
 
-    /* قائمة الشهادات */
     .certificates-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       max-width: 600px;
     }
+
     .certificates-list li {
       margin-bottom: 12px;
       padding-right: 1.5em;
       position: relative;
-      line-height: 1.6;
       font-size: 1.1rem;
     }
+
     .certificates-list li::before {
       content: "🔹";
       position: absolute;
       right: 0;
       font-size: 1.3em;
-      line-height: 1;
       color: #007bff;
     }
 
@@ -185,15 +185,17 @@
       padding: 1rem;
       margin-top: 3rem;
     }
-    body.dark footer {
+
+    html:has(#toggle-dark:checked) footer {
       background-color: #222;
     }
 
-    /* الهاتف والشاشات الصغيرة */
+    /* الهاتف */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
       }
+
       nav ul {
         display: none;
         flex-direction: column;
@@ -202,9 +204,11 @@
         border-radius: 10px;
         margin-top: 1rem;
       }
+
       #nav-toggle:checked ~ nav ul {
         display: flex;
       }
+
       nav ul li a {
         background-color: white;
         color: #007bff;
@@ -213,10 +217,12 @@
         margin-bottom: 5px;
         border-radius: 10px;
       }
-      body.dark nav ul {
+
+      html:has(#toggle-dark:checked) nav ul {
         background-color: #222;
       }
-      body.dark nav ul li a {
+
+      html:has(#toggle-dark:checked) nav ul li a {
         background-color: #333;
         color: #eee;
       }
@@ -225,13 +231,12 @@
 </head>
 <body>
 
-  <!-- زر الوضع الليلي -->
+  <!-- زر الوضع الداكن -->
   <label class="switch">
     <input type="checkbox" id="toggle-dark" />
     <span class="slider"></span>
   </label>
 
-  <!-- رأس الصفحة -->
   <header>
     <div class="header-content">
       <label for="nav-toggle" class="hamburger">☰</label>
@@ -251,7 +256,6 @@
     </nav>
   </header>
 
-  <!-- المحتوى -->
   <main>
     <section>
       <h2>الشهادات</h2>
@@ -264,12 +268,8 @@
     </section>
   </main>
 
-  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
-
-  
-
 </body>
 </html>
