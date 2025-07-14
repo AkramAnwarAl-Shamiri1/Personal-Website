@@ -23,16 +23,16 @@
     <span class="slider"></span>
   </label>
 
-  <!-- زر الهامبرغر بدون JavaScript -->
-  <input type="checkbox" id="menu-toggle" />
-  
   <header>
-    <h1>أكرم الشميري</h1>
+    <div class="header-content">
+      <label for="nav-toggle" class="hamburger" title="القائمة">☰</label>
+      <h1>أكرم الشميري</h1>
+    </div>
+    <input type="checkbox" id="nav-toggle" hidden />
     <nav>
-      <label for="menu-toggle" class="hamburger">☰</label>
       <ul>
         <li><a href="index.html">🏠 الرئيسية</a></li>
-        <li><a href="bio.html">👤 السيرة الذاتية</a></li>
+        <li><a href="bio.html" class="active">👤 السيرة الذاتية</a></li>
         <li><a href="skills.html">🛠️ المهارات</a></li>
         <li><a href="projects.html">💻 المشاريع</a></li>
         <li><a href="Certificates.html">📜 الشهادات</a></li>
@@ -41,6 +41,7 @@
       </ul>
     </nav>
   </header>
+  
 
   <main>
     <section class="bio-section">
