@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>السيرة الذاتية</title>
+  <title>السيرة الذاتية | أكرم الشميري</title>
   <style>
-    html {
-      font-family: 'Segoe UI', sans-serif;
-    }
-
     body {
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 2rem;
-      background: #f0f4f8;
+      padding: 0;
+      background-color: #f5f5f5;
       color: #222;
       transition: background-color 0.3s, color 0.3s;
     }
@@ -22,10 +19,23 @@
       color: #eee;
     }
 
+    a {
+      color: #007bff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* زر الوضع الداكن */
     .theme-toggle-wrapper {
       position: fixed;
-      top: 1rem;
-      left: 1rem;
+      top: 10px;
+      left: 10px;
       z-index: 1000;
     }
 
@@ -34,43 +44,71 @@
     }
 
     .theme-toggle-label {
-      background-color: #0A2647;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      cursor: pointer;
+      width: 40px;
+      height: 20px;
+      background-color: #ccc;
       display: inline-block;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .theme-toggle-label::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background-color: #fff;
+      position: absolute;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      transition: 0.3s;
+    }
+
+    #theme-toggle:checked + .theme-toggle-label::before {
+      transform: translateX(20px);
     }
 
     header {
       background-color: #0A2647;
       color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      margin-bottom: 2rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
+      padding: 1rem;
     }
 
-    header h1 {
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-content h1 {
       margin: 0;
-      font-size: 2rem;
+      text-align: center;
+      flex: 1;
+      font-size: 1.8rem;
+    }
+
+    /* الهامبرغر */
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+      user-select: none;
+    }
+
+    #nav-toggle {
+      display: none;
     }
 
     nav ul {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 1rem 0 0 0;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 10px;
+      justify-content: center;
     }
 
     nav ul li a {
@@ -78,9 +116,8 @@
       background-color: white;
       border-radius: 20px;
       color: #007bff;
-      text-decoration: none;
-      font-weight: 600;
       transition: background 0.3s;
+      font-size: 1rem;
     }
 
     nav ul li a:hover,
@@ -100,72 +137,52 @@
       color: white;
     }
 
-    .bio-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      align-items: flex-start;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 1.2s ease-out forwards;
-      background: white;
+    main {
       padding: 2rem;
-      border-radius: 20px;
       max-width: 900px;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    html:has(#theme-toggle:checked) .bio-section {
+    main h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #007bff;
+    }
+
+    .bio-info {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    html:has(#theme-toggle:checked) .bio-info {
       background-color: #1e1e1e;
       color: #eee;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .bio-image {
-      width: 200px;
-      border-radius: 10px;
-      border: 3px solid #007bff;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .bio-image:hover {
-      transform: scale(1.05) rotate(1deg);
-      box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
-    }
-
-    .bio-text {
-      flex: 1;
-    }
-
-    .bio-text h1,
-    .bio-text h2 {
-      margin-top: 0;
+    .bio-info h3 {
+      margin-top: 1rem;
       color: #004080;
     }
 
-    html:has(#theme-toggle:checked) .bio-text h1,
-    html:has(#theme-toggle:checked) .bio-text h2 {
+    html:has(#theme-toggle:checked) .bio-info h3 {
       color: #4ea3f1;
     }
 
-    .bio-text ul {
+    .bio-info ul {
       list-style: none;
       padding: 0;
     }
 
-    .bio-text ul li {
+    .bio-info ul li {
       margin-bottom: 10px;
       padding-right: 1.5em;
       position: relative;
     }
 
-    .bio-text ul li::before {
+    .bio-info ul li::before {
       content: "🔹";
       position: absolute;
       right: 0;
@@ -175,82 +192,64 @@
       background-color: #0A2647;
       color: white;
       text-align: center;
-      padding: 1rem 2rem;
-      border-radius: 20px;
-      margin-top: 2rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 1rem;
+      margin-top: 3rem;
     }
 
     html:has(#theme-toggle:checked) footer {
       background-color: #222;
     }
 
-    .hamburger {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      color: white;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1100;
-    }
-
     @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #0A2647;
-        border-radius: 10px;
-        padding: 10px 0;
-        position: absolute;
-        top: 70px;
-        width: 100%;
-        right: 0;
-      }
-
-      #nav-toggle:checked + nav ul {
-        display: flex;
-      }
-
-      nav ul li a {
-        width: 100%;
-        padding: 12px 0;
-        text-align: center;
-        font-size: 18px;
-        border-radius: 0;
-        margin: 0 10px;
-      }
-
       .hamburger {
         display: block;
       }
 
-      .bio-section {
+      nav ul {
+        display: none;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        background-color: #0A2647;
+        padding: 1rem;
+        border-radius: 10px;
+        margin-top: 1rem;
       }
 
-      .bio-text {
+      #nav-toggle:checked ~ nav ul {
+        display: flex;
+      }
+
+      nav ul li a {
+        background-color: white;
+        color: #007bff;
+        width: 100%;
         text-align: center;
+        margin-bottom: 5px;
+        border-radius: 10px;
+      }
+
+      html:has(#theme-toggle:checked) nav ul {
+        background-color: #222;
+      }
+
+      html:has(#theme-toggle:checked) nav ul li a {
+        background-color: #333;
+        color: #eee;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- زر الوضع الداكن (CSS فقط) -->
+  <!-- زر الوضع الداكن -->
   <div class="theme-toggle-wrapper">
     <input type="checkbox" id="theme-toggle" />
-    <label for="theme-toggle" class="theme-toggle-label">🌙</label>
+    <label for="theme-toggle" class="theme-toggle-label"></label>
   </div>
 
+  <!-- رأس الصفحة -->
   <header>
     <div class="header-content">
-      <label for="nav-toggle" class="hamburger" title="القائمة">☰</label>
+      <label for="nav-toggle" class="hamburger">☰</label>
       <h1>أكرم الشميري</h1>
     </div>
     <input type="checkbox" id="nav-toggle" hidden />
@@ -267,14 +266,14 @@
     </nav>
   </header>
 
-  <section class="bio-section">
-    <img src="avater.jpg" alt="صورة أكرم الشميري" class="bio-image" />
-    <div class="bio-text">
-      <h1>السيرة الذاتية</h1>
-      <h2>نبذة شخصية</h2>
+  <!-- المحتوى -->
+  <main>
+    <section class="bio-info">
+      <h2>السيرة الذاتية</h2>
+      <h3>نبذة شخصية</h3>
       <p>أنا أكرم الشميري، مطور ويب متكامل. أعمل على تصميم وتطوير مواقع ويب احترافية باستخدام HTML, CSS, JavaScript, PHP وغيرها.</p>
 
-      <h2>المعلومات الشخصية</h2>
+      <h3>المعلومات الشخصية</h3>
       <ul>
         <li><strong>الاسم:</strong> أكرم الشميري</li>
         <li><strong>الموقع:</strong> اليمن - تعز</li>
@@ -282,9 +281,10 @@
         <li><strong>البريد:</strong> akramalshmiri2019@gmail.com</li>
         <li><strong>المؤهل:</strong> بكالوريوس تقنية معلومات</li>
       </ul>
-    </div>
-  </section>
+    </section>
+  </main>
 
+  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
