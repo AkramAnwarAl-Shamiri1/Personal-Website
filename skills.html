@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>المهارات | أكرم الشميري</title>
   <style>
-    body {
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
       padding: 0;
       direction: rtl;
@@ -15,7 +18,7 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark {
+    html:has(#toggle-dark:checked) body {
       background-color: #121212;
       color: #eee;
     }
@@ -32,7 +35,6 @@
       text-decoration: underline;
     }
 
-    /* زر الوضع الليلي */
     .switch {
       position: fixed;
       top: 10px;
@@ -66,12 +68,12 @@
       transition: 0.3s;
     }
 
-    input:checked + .slider::before {
+    #toggle-dark:checked + .slider::before {
       transform: translateX(20px);
     }
 
     header {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       padding: 1rem;
       position: relative;
@@ -90,7 +92,6 @@
       text-align: center;
     }
 
-    /* زر الهامبرغر */
     .hamburger {
       display: none;
       font-size: 30px;
@@ -131,13 +132,13 @@
       color: white;
     }
 
-    body.dark nav ul li a {
+    html:has(#toggle-dark:checked) nav ul li a {
       background-color: #333;
       color: #ccc;
     }
 
-    body.dark nav ul li a:hover,
-    body.dark nav ul li a.active {
+    html:has(#toggle-dark:checked) nav ul li a:hover,
+    html:has(#toggle-dark:checked) nav ul li a.active {
       background-color: #555;
       color: white;
     }
@@ -153,6 +154,10 @@
       margin-bottom: 1.5rem;
       font-size: 2rem;
       color: #007bff;
+    }
+
+    html:has(#toggle-dark:checked) main h2 {
+      color: #4ea3f1;
     }
 
     .skills-list {
@@ -179,19 +184,22 @@
       color: #007bff;
     }
 
+    html:has(#toggle-dark:checked) .skills-list li::before {
+      color: #4ea3f1;
+    }
+
     footer {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
     }
 
-    body.dark footer {
+    html:has(#toggle-dark:checked) footer {
       background-color: #222;
     }
 
-    /* الهاتف والشاشات الصغيرة */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -229,11 +237,11 @@
         margin: 0 10px;
       }
 
-      body.dark nav ul {
+      html:has(#toggle-dark:checked) nav ul {
         background-color: #222;
       }
 
-      body.dark nav ul li a {
+      html:has(#toggle-dark:checked) nav ul li a {
         background-color: #333;
         color: #eee;
       }
@@ -298,33 +306,6 @@
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
-
-  <!-- JavaScript لتفعيل الوضع الليلي + إغلاق الهامبرغر -->
-  <script>
-    // الوضع الليلي
-    window.addEventListener('DOMContentLoaded', () => {
-      const isDark = localStorage.getItem('theme') === 'dark';
-      document.body.classList.toggle('dark', isDark);
-      document.getElementById('toggle-dark').checked = isDark;
-    });
-
-    document.getElementById('toggle-dark').addEventListener('change', function () {
-      if (this.checked) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-
-    // إغلاق القائمة عند الضغط على أي رابط
-    document.querySelectorAll('nav ul li a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('nav-toggle').checked = false;
-      });
-    });
-  </script>
 
 </body>
 </html>
