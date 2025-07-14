@@ -1,22 +1,23 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>التوصيات | أكرم الشميري</title>
   <style>
-    body {
+    html {
       font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      direction: rtl;
       background-color: #f5f5f5;
       color: #222;
       transition: background-color 0.3s, color 0.3s;
     }
 
-    body.dark {
+    html:has(#toggle-dark:checked) body {
       background-color: #121212;
       color: #eee;
     }
@@ -33,7 +34,6 @@
       text-decoration: underline;
     }
 
-    /* زر الوضع الليلي */
     .switch {
       position: fixed;
       top: 10px;
@@ -67,12 +67,12 @@
       transition: 0.3s;
     }
 
-    input:checked + .slider::before {
+    #toggle-dark:checked + .slider::before {
       transform: translateX(20px);
     }
 
     header {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       padding: 1rem;
     }
@@ -90,7 +90,6 @@
       font-size: 1.8rem;
     }
 
-    /* زر الهامبرغر */
     #nav-toggle {
       display: none;
     }
@@ -120,9 +119,6 @@
       border-radius: 20px;
       color: #007bff;
       transition: background 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5em;
       font-size: 1rem;
     }
 
@@ -132,13 +128,13 @@
       color: white;
     }
 
-    body.dark nav ul li a {
+    html:has(#toggle-dark:checked) nav ul li a {
       background-color: #333;
       color: #ccc;
     }
 
-    body.dark nav ul li a:hover,
-    body.dark nav ul li a.active {
+    html:has(#toggle-dark:checked) nav ul li a:hover,
+    html:has(#toggle-dark:checked) nav ul li a.active {
       background-color: #555;
       color: white;
     }
@@ -156,43 +152,40 @@
       color: #007bff;
     }
 
-    .certificates-list {
+    .recommendations-list {
       list-style: none;
       padding: 0;
       margin: 0 auto;
       max-width: 600px;
     }
 
-    .certificates-list li {
+    .recommendations-list li {
       margin-bottom: 12px;
       padding-right: 1.5em;
       position: relative;
-      line-height: 1.6;
       font-size: 1.1rem;
     }
 
-    .certificates-list li::before {
-      content: "🔹";
+    .recommendations-list li::before {
+      content: "💬";
       position: absolute;
       right: 0;
       font-size: 1.3em;
-      line-height: 1;
       color: #007bff;
     }
 
     footer {
-      background-color:  #0A2647;
+      background-color: #0A2647;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 3rem;
     }
 
-    body.dark footer {
+    html:has(#toggle-dark:checked) footer {
       background-color: #222;
     }
 
-    /* الهاتف والشاشات الصغيرة */
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -220,11 +213,11 @@
         border-radius: 10px;
       }
 
-      body.dark nav ul {
+      html:has(#toggle-dark:checked) nav ul {
         background-color: #222;
       }
 
-      body.dark nav ul li a {
+      html:has(#toggle-dark:checked) nav ul li a {
         background-color: #333;
         color: #eee;
       }
@@ -239,7 +232,6 @@
     <span class="slider"></span>
   </label>
 
-  <!-- رأس الصفحة -->
   <header>
     <div class="header-content">
       <label for="nav-toggle" class="hamburger">☰</label>
@@ -252,7 +244,7 @@
         <li><a href="bio.html">👤 السيرة الذاتية</a></li>
         <li><a href="skills.html">🛠️ المهارات</a></li>
         <li><a href="projects.html">💻 المشاريع</a></li>
-         <li><a href="Certificates.html">📜 الشهادات</a></li>
+        <li><a href="Certificates.html">📜 الشهادات</a></li>
         <li><a href="Recommendations.html" class="active">👍 التوصيات</a></li>
         <li><a href="contact.html">✉️ التواصل</a></li>
       </ul>
@@ -267,31 +259,10 @@
         <li>أكرم مبدع في عمله ويقدم دائمًا نتائج - موسى</li>
       </ul>
     </section>
-</main>
+  </main>
 
-  <!-- التذييل -->
   <footer>
     <p>&copy; 2025 - أكرم الشميري | جميع الحقوق محفوظة</p>
   </footer>
-
-  <!-- JavaScript لحفظ واسترجاع الوضع الليلي -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const isDark = localStorage.getItem('theme') === 'dark';
-      document.body.classList.toggle('dark', isDark);
-      document.getElementById('toggle-dark').checked = isDark;
-    });
-
-    document.getElementById('toggle-dark').addEventListener('change', function () {
-      if (this.checked) {
-        document.body.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
-
 </body>
 </html>
